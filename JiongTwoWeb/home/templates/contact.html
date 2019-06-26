@@ -1,0 +1,657 @@
+{% extends "layout.html" %}
+{% load staticfiles %}
+{% load i18n %}
+
+{% block header %}
+    {% include "header.html" with title="联系我们" %}
+    {% block style_tag %}
+    <!--<link rel="stylesheet" href="https://a.amap.com/jsapi_demos/static/demo-center/css/demo-center.css"/>-->
+    <style>
+         .content-window-card {
+            position: relative;
+            box-shadow: none;
+            bottom: 0;
+            left: 0;
+            width: auto;
+            padding: 0;
+        }
+
+        .content-window-card p {
+            height: 2rem;
+        }
+
+        .custom-info {
+            border: solid 1px silver;
+        }
+
+        div.info-top {
+            position: relative;
+            background: none repeat scroll 0 0 #F9F9F9;
+            border-bottom: 1px solid #CCC;
+            border-radius: 5px 5px 0 0;
+        }
+
+        div.info-top div {
+            display: inline-block;
+            color: #333333;
+            font-size: 14px;
+            font-weight: bold;
+            line-height: 31px;
+            padding: 0 10px;
+        }
+
+        div.info-top img {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            transition-duration: 0.25s;
+        }
+
+        div.info-top img:hover {
+            box-shadow: 0px 0px 5px #000;
+        }
+
+        div.info-top span {
+            margin-left: 5px;
+            font-size: 11px;
+        }
+
+        div.info-middle {
+            font-size: 12px;
+            padding: 10px 6px;
+            line-height: 20px;
+        }
+
+        div.info-bottom {
+            height: 0px;
+            width: 100%;
+            clear: both;
+            text-align: center;
+        }
+
+        div.info-bottom img {
+            position: relative;
+            z-index: 104;
+        }
+
+        div.info-middle img {
+            float: left;
+            margin-right: 6px;
+        }
+    </style>
+    {% endblock %}
+{% endblock %}
+
+{% block banner %}
+<!--滚动切换图片-->
+<div class="hero-slider">
+    <div class="single-slide" style="background-image: url({% static 'images/banner_5.jpg' %})">
+        <div class="inner">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <div class="slide-content">
+                            <h2 class="banner-h2">
+                                CONTACT US
+                            </h2>
+                            <h4 class="banner-h4">
+                                <hr class="hr-1">
+                                <span>联系我们</span>
+                                <hr class="hr-1">
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="single-slide" style="background-image: url({% static 'images/banner_6.jpg' %})">
+        <div class="inner">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-12 text-center">
+                        <div class="slide-content">
+                            <h2 class="banner-h2">
+                                CONTACT US
+                            </h2>
+                            <h4 class="banner-h4">
+                                <hr class="hr-1">
+                                <span>联系我们</span>
+                                <hr class="hr-1">
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="service-area sp bg6">
+    <div class="container">
+        <div class="section-title">
+            <h2>{% trans "联系我们" %}</h2>
+            <div class="sub-title">
+                <hr class="hr-2">
+                <span>CONTACT</span>
+                <hr class="hr-2">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-md-6 single-service">
+                <div class="inner" style="background-color: #fbdf50;">
+                    <div class="title">
+                        <div class="icon">
+                            <i class="glyphicon glyphicon-earphone"></i>
+                        </div>
+                        <h4 style="color: #fff;">{% trans "电话" %}</h4>
+                    </div>
+                    <div class="content">
+                        <h3 style="color: #333333; font-size: 18px;">177 9135 9205</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 single-service">
+                <div class="inner" style="background-color: #fbdf50;">
+                    <div class="title">
+                        <div class="icon">
+                            <i class="glyphicon glyphicon-envelope"></i>
+                        </div>
+                        <h4 style="color: #fff;">{% trans "邮箱" %}</h4>
+                    </div>
+                    <div class="content">
+                        <h3 style="color: #333333; font-size: 18px;">opencoding@hotmail.com</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 single-service">
+                <div class="inner" style="background-color: #fbdf50;">
+                    <div class="title">
+                        <div class="icon">
+                            <i class="glyphicon glyphicon-map-marker"></i>
+                        </div>
+                        <h4 style="color: #fff;">{% trans "地址" %}</h4>
+                    </div>
+                    <div class="content">
+                        <h3 style="color: #333333; font-size: 18px;">{% trans "西安市高新区丈八二路31号" %}</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="gallery-area sp bg3">
+    <div class="container">
+        <div class="section-title" data-margin="0 0 40px">
+            <h2>{% trans "公司地址" %}</h2>
+            <div class="sub-title">
+                <hr class="hr-2">
+                <span>COMPANY ADDRESS</span>
+                <hr class="hr-2">
+            </div>
+            <div>{% trans "如果，您是亲临秦食皇，有以下交通方式可供选择" %}：</div>
+            <div>{% trans "乘坐公交：251路、107路、高新2号线都可到达，自驾车：参考地图标示行驶高新六路，科技四路，团结南路前往双水磨公交站均可到达。" %}</div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="">
+                    <!--<img src="{% static 'images/gallery-1.jpg' %}" alt="">-->
+                    <div id="map-container" style="width: 100%; height: 600px; border: 3px solid #fde981; border-radius: 10px;"></div>
+                </div>
+            </div>
+        </div>
+        <!--<div class="info">
+            <h4 id='status'></h4><hr>
+            <p id='result'></p><hr>
+            <p >由于众多浏览器已不再支持非安全域的定位请求，为保位成功率和精度，请升级您的站点到HTTPS。</p>
+        </div>-->
+    </div>
+</div>
+{% endblock %}
+
+
+{% block footer %}
+    {% include "footer.html" with footer="footer" %}
+    {% block script_tag %}
+    <script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.14&key=02ab55357c0d803a0cb144049c8ae5d2"></script>
+    <!--<script src="https://a.amap.com/jsapi_demos/static/resource/heatmapData.js"></script>-->
+    <script>
+        $(function(){
+            // 判断浏览区是否支持canvas
+            function isSupportCanvas() {
+                var elem = document.createElement('canvas');
+                return !!(elem.getContext && elem.getContext('2d'));
+            }
+
+            var map = new AMap.Map('map-container', {
+                zoom: 17,
+                zooms: [4, 25], //设置地图级别范围
+                // center: [116.397428, 39.90923]
+                center: [108.886135,34.185397],
+                viewMode: '3D',
+                resizeEnable: true,
+                //layers: [//使用多个图层
+                    // new AMap.TileLayer.Satellite(),
+                    // new AMap.TileLayer.RoadNet()
+                //],
+                pitch: 60,
+                showBuildingBlock: true,
+                expandZoomRange: true,
+            });
+            // 换取环境光
+            map.AmbientLight = new AMap.Lights.AmbientLight([1, 1, 1], 0.3);
+            // map.AmbientLight.setIntensity(0.5); //修改强度
+            // map.AmbientLight.setColor([1,0,0]); //修改颜色
+            // map.AmbientLight.setDirection([0,-1,2]); //修改方向
+            // 获取平行光
+            map.DirectionLight = new AMap.Lights.DirectionLight([0, -1, 2], [1, 1, 1], 0.7);
+
+            var myMapCenter = map.getCenter();
+            // console.log(map.getCenter());
+
+            // 异步加载多个插件
+            // 3D控制罗盘插件
+            AMap.plugin([
+                'AMap.ControlBar',
+                'AMap.ToolBar',
+                // 'AMap.Driving',
+                // 'AMap.Heatmap',
+                // 'AMap.Geolocation',
+            ], function(){
+                // 添加3D控制罗盘
+                map.addControl(new AMap.ControlBar());
+
+                var toolbar = new AMap.ToolBar();
+                map.addControl(toolbar);
+
+                //// 驾车路线规划
+                // var driving = AMap.Driving();
+                // driving.search('251路');
+
+
+                /* visible 热力图是否显示,默认为true
+                 * opacity 热力图的透明度,分别对应heatmap.js的minOpacity和maxOpacity
+                 * radius 势力图的每个点的半径大小
+                 * gradient  {JSON} 热力图的渐变区间 . gradient如下所示
+                 *	{
+                     .2:'rgb(0, 255, 255)',
+                     .5:'rgb(0, 110, 255)',
+                     .8:'rgb(100, 0, 255)'
+                 }
+                 其中 key 表示插值的位置, 0-1 value 为颜色值
+                */
+
+                // var heatmap = new AMap.Heatmap(map, {
+                //     visible: true,
+                //     radius: 25, //给定半径
+                //     opacity: [0, 0.8],
+                //     gradient: {
+                //         0.5: 'blue',
+                //         0.65: 'rgb(117,211,248)',
+                //         0.7: 'rgb(0, 255, 0)',
+                //         0.9: '#ffea00',
+                //         1.0: 'red'
+                //     }
+                // });
+                //
+                // heatmap.setDataSet({
+                //     data: heatmapData,
+                //     max: 100
+                // });
+
+                // // 地图定位
+                // var geolocation = new AMap.Geolocation({
+                //     enableHighAccuracy: true, //是否使用高精度定位，默认:true
+                //     timeout: 10000,  //超过10秒后停止定位，默认：5s
+                //     buttomPosition: 'RB', //定位按钮的停靠位置
+                //     buttonOffset: new AMap.Pixel(10, 20), //定位按钮与设置的停靠位置的偏移量，默认：Pixel(10, 20)
+                //     zoomeToAccuracy: true,  //定位成功后是否自动调整地图视野到定位点
+                // });
+                // map.addControl(geolocation);
+                //
+                // geolocation.getCurrentPosition(function(status,result){
+                //     if(status=='complete'){
+                //         onComplete(result)
+                //     }else{
+                //         onError(result)
+                //     }
+                // });
+            });
+
+
+            /*//获取用户所在城市信息
+            function showCityInfo() {
+                // 实例化城市查询类
+                var citysearch = new AMap.CitySearch();
+                //自动获取用户IP，返回当前城市
+                citysearch.getLocalCity(function(status, result) {
+                    if (status === 'complete' && result.info === 'OK') {
+                        if (result && result.city && result.bounds) {
+                            var cityinfo = result.city;
+                            var citybounds = result.bounds;
+                            // document.getElementById('info').innerHTML = '您当前所在城市：'+cityinfo;
+                            //地图显示当前城市
+                            map.setBounds(citybounds);
+                        }
+                    } else {
+                        document.getElementById('info').innerHTML = result.info;
+                    }
+                });
+            }
+            showCityInfo();*/
+
+
+            // /*
+            //  * 添加Canvas图层
+            //  */
+            // var canvas = document.createElement('canvas');
+            // canvas.width = canvas.height = 200;
+            //
+            // var context = canvas.getContext('2d')
+            // context.fillStyle = 'rgb(0,100,255)';
+            // context.strokeStyle = 'white';
+            // context.globalAlpha = 1;
+            // context.lineWidth = 2;
+            //
+            // var radious = 0;
+            // var draw = function () {
+            //     context.clearRect(0, 0, 200, 200)
+            //     context.globalAlpha = (context.globalAlpha - 0.01 + 1) % 1;
+            //     radious = (radious + 1) % 100;
+            //
+            //     context.beginPath();
+            //     context.arc(100, 100, radious, 0, 2 * Math.PI);
+            //     context.fill();
+            //     context.stroke();
+            //
+            //     //2D视图时可以省略
+            //     CanvasLayer.reFresh();
+            //
+            //     AMap.Util.requestAnimFrame(draw);
+            // };
+            //
+            // var CanvasLayer = new AMap.CanvasLayer({
+            //     canvas: canvas,
+            //     bounds: new AMap.Bounds(
+            //         [myMapCenter.lng - 1, myMapCenter.lat - 1],
+            //         [myMapCenter.lng + 1, myMapCenter.lat + 1],
+            //         // [116.328911, 39.937229],
+            //         // [116.342659, 39.946275]
+            //     ),
+            //     zooms: [3, 18],
+            // });
+            //
+            // CanvasLayer.setMap(map);
+            // draw();
+
+
+            var angle = 90;
+            function changeLightDirection() {
+                angle += 3;
+                var dir = [
+                    Math.cos(angle / 180 * Math.PI),
+                    -Math.sin(angle / 180 * Math.PI),
+                    2
+                ];
+                map.DirectionLight.setDirection(dir);
+                map.render();
+                AMap.Util.requestAnimFrame(changeLightDirection);
+            }
+            changeLightDirection();
+
+
+            // 3D层
+            var topColor = [0, 1, 1, 0.9];
+            var topFaceColor = [0, 1, 1, 0.4];
+            var bottomColor = [0, 0, 1, 0.9];
+            var center_3d = map.lngLatToGeodeticCoord(map.getCenter());
+
+            var object3Dlayer = new AMap.Object3DLayer();
+            map.add(object3Dlayer);
+
+            //添加一个圆柱体
+            var addRegularPrism = function (center, segment, height, radius, color) {
+                // var cylinder = new AMap.Object3D.Mesh();
+                var cylinder = new AMap.Object3D.MeshAcceptLights();
+
+                var geometry = cylinder.geometry;
+                var verticesLength = segment * 2;
+                var path = [];
+                for (var i = 0; i < segment; i += 1) {
+                    var angle = 2 * Math.PI * i / segment;
+                    var x = center.x + Math.cos(angle) * radius;
+                    var y = center.y + Math.sin(angle) * radius;
+                    path.push([x, y]);
+                    geometry.vertices.push(x, y, 0); //底部顶点
+                    geometry.vertices.push(x, y, -height); //顶部顶点
+
+                    // geometry.vertexColors.push.apply(geometry.vertexColors, bottomColor); //底部颜色
+                    // geometry.vertexColors.push.apply(geometry.vertexColors, topColor); //顶部颜色
+
+                    geometry.vertexColors.push.apply(geometry.vertexColors, color); // 底部颜色
+                    geometry.vertexColors.push.apply(geometry.vertexColors, color); // 顶部颜色
+
+
+                    var nX = Math.cos(angle);
+                    var nY = Math.sin(angle);
+                    // 为了支持光照，计算侧面顶点法向量
+                    geometry.vertexNormals.push(nX, nY, 0);
+                    geometry.vertexNormals.push(nX, nY, 0);
+
+
+                    var bottomIndex = i * 2;
+                    var topIndex = bottomIndex + 1;
+                    var nextBottomIndex = (bottomIndex + 2) % verticesLength;
+                    var nextTopIndex = (bottomIndex + 3) % verticesLength;
+
+                    geometry.faces.push(bottomIndex, topIndex, nextTopIndex); //侧面三角形1
+                    geometry.faces.push(bottomIndex, nextTopIndex, nextBottomIndex); //侧面三角形2
+                }
+
+                // 构建顶面三角形,为了区分顶面点和侧面点使用不一样的颜色,所以需要独立的顶点
+                for (var i = 0; i < segment; i += 1) {
+                    geometry.vertices.push.apply(geometry.vertices, geometry.vertices.slice(i * 6 + 3, i * 6 + 6)); //底部顶点
+                    // geometry.vertexColors.push.apply(geometry.vertexColors, topFaceColor);
+
+                    geometry.vertexColors.push.apply(geometry.vertexColors, color);
+                    // 为了支持光照，计算顶面顶点法向量
+                    geometry.vertexNormals.push(0, 0, -1);
+                }
+
+                var triangles = AMap.GeometryUtil.triangulateShape(path);
+                var offset = segment * 2;
+
+                for (var v = 0; v < triangles.length; v += 3) {
+                    geometry.faces.push(triangles[v] + offset, triangles[v + 2] + offset, triangles[v + 1] + offset);
+                }
+
+                cylinder.transparent = true; // 如果使用了透明颜色，请设置true
+                object3Dlayer.add(cylinder);
+            };
+
+            // addRegularPrism(center_3d.add(new AMap.Pixel(-1500, 0)), 3, 800, 500) //三棱柱
+            // addRegularPrism(center_3d, 5, 1200, 500)//五棱柱
+            // addRegularPrism(center_3d.add(new AMap.Pixel(-770, 3200)), 32, 1600, 500) //圆柱
+
+            // addRegularPrism(center_3d.add(new AMap.Pixel(-1500, 0)), 3, 800, 500, [1, 0, 0, 1]) //三棱柱
+            addRegularPrism(center_3d.add(new AMap.Pixel(-50, 350)), 5, 1500, 400, [0, 1, 0, 1])//五棱柱
+            // addRegularPrism(center_3d.add(new AMap.Pixel(-770, 3200)), 32, 1600, 500, [0, 0, 1, 1])//圆柱
+
+
+            // //实时路况图层
+            // var trafficLayer = new AMap.TileLayer.Traffic({
+            //     zIndex: 10
+            // });
+            // //添加图层到地图
+            // map.add(trafficLayer);
+
+
+            // 添加默认样式的Marker
+            var marker = new AMap.Marker({
+                position: [myMapCenter.lng, myMapCenter.lat]  //位置
+            });
+            // 添加到地图
+            map.add(marker);
+            // map.remove(marker);
+
+            // var onMarkerClick = function(e){
+            //     // e.target就是被点击的Marker
+            //     infoWindow.open(map, e.target.getPosition());  // 打开信息窗体
+            // }
+            // marker.on('click', onMarkerClick);  //绑定click事件
+
+            AMap.event.addListener(marker, 'click', function(){
+                infoWindow.open(map, marker.getPosition());  // 打开信息窗体
+            });
+
+
+            // // 添加折线
+            // var lineArr = [
+            //     [116.368904, 39.913423],
+            //     [116.382122, 39.901176],
+            //     [116.387271, 39.912501],
+            //     [116.398258, 39.904600]
+            // ];
+            // var polyline = new AMap.Polyline({
+            //     path: lineArr,          //设置线覆盖物路径
+            //     strokeColor: "#3366FF", //线颜色
+            //     strokeWeight: 5,        //线宽
+            //     strokeStyle: "solid",   //线样式
+            // });
+            // map.add(polyline);
+
+            //实例化信息窗体
+            var title = '方恒假日酒店<span style="font-size:11px;color:#F00;">价格:318</span>',
+                content = [];
+            content.push("<img src='http://tpc.googlesyndication.com/simgad/5843493769827749134'>地址：北京市朝阳区阜通东大街6号院3号楼东北8.3公里");
+            content.push("电话：010-64733333");
+            content.push("<a href='https://ditu.amap.com/detail/B000A8URXB?citycode=110105'>详细信息</a>");
+
+            // 创建信息窗体
+            var infoWindow = new AMap.InfoWindow({
+                isCustom: true, // 使用自定义窗体
+                content: createInfoWindow(title, content.join("</br>")),  //信息窗体的内容可以是任意html片段
+                offset: new AMap.Pixel(16, -45)
+            });
+
+            //关闭信息窗体
+            function closeInfoWindow() {
+                map.clearInfoWindow();
+            }
+
+            //构建自定义信息窗体
+            function createInfoWindow(title, content) {
+                var info = document.createElement("div");
+                info.className = "custom-info input-card content-window-card";
+
+                //可以通过下面的方式修改自定义窗体的宽高
+                //info.style.width = "400px";
+                // 定义顶部标题
+                var top = document.createElement("div");
+                var titleD = document.createElement("div");
+                var closeX = document.createElement("img");
+                top.className = "info-top";
+                titleD.innerHTML = title;
+                closeX.src = "https://webapi.amap.com/images/close2.gif";
+                closeX.onclick = closeInfoWindow;
+
+                top.appendChild(titleD);
+                top.appendChild(closeX);
+                info.appendChild(top);
+
+                // 定义中部内容
+                var middle = document.createElement("div");
+                middle.className = "info-middle";
+                middle.style.backgroundColor = 'white';
+                middle.innerHTML = content;
+                info.appendChild(middle);
+
+                // 定义底部内容
+                var bottom = document.createElement("div");
+                bottom.className = "info-bottom";
+                bottom.style.position = 'relative';
+                bottom.style.top = '0px';
+                bottom.style.margin = '0 auto';
+                var sharp = document.createElement("img");
+                sharp.src = "https://webapi.amap.com/images/sharp.png";
+                bottom.appendChild(sharp);
+                info.appendChild(bottom);
+                return info;
+            }
+
+
+            var radar;
+            var buildRadar = function () {
+                radar = new AMap.Object3D.Mesh();
+                radar.transparent = true;
+                radar.backOrFront = 'front';
+
+                var geometry = radar.geometry;
+                var radius = 200; // 米
+                radius = radius / map.getResolution(map.getCenter(), 20);
+                var unit = 1;
+                var range = 200;
+                var count = range / unit;
+
+                for (var i = 0; i < count; i += 1) {
+                    var angle1 = i * unit * Math.PI / 180;
+                    var angle2 = (i + 1) * unit * Math.PI / 180;
+
+                    var p1x = Math.cos(angle1) * radius;
+                    var p1y = Math.sin(angle1) * radius;
+                    var p2x = Math.cos(angle2) * radius;
+                    var p2y = Math.sin(angle2) * radius;
+
+                    geometry.vertices.push(0, 0, 0);
+                    geometry.vertices.push(p1x, p1y, 0);
+                    geometry.vertices.push(p2x, p2y, 0);
+
+                    var opacityStart = getOpacity(i / count);
+                    var opacityEnd = getOpacity((i + 1) / count);
+
+                    geometry.vertexColors.push(0, 1, 0.2, opacityStart);
+                    geometry.vertexColors.push(0, 1, 0.2, opacityStart);
+                    geometry.vertexColors.push(0, 1, 0.2, opacityEnd);
+                }
+
+                radar.position(map.getCenter());
+
+                object3Dlayer.add(radar);
+            };
+
+            function getOpacity(scale) {
+                return 1 - Math.pow(scale, 0.3);
+            }
+
+            function scan() {
+                radar.rotateZ(-2);
+                AMap.Util.requestAnimFrame(scan);
+            }
+
+            // buildRadar();
+            // scan();
+
+            // //解析定位结果
+            // function onComplete(data) {
+            //     document.getElementById('status').innerHTML='定位成功'
+            //     var str = [];
+            //     str.push('定位结果：' + data.position);
+            //     str.push('定位类别：' + data.location_type);
+            //     if(data.accuracy){
+            //          str.push('精度：' + data.accuracy + ' 米');
+            //     }//如为IP精确定位结果则没有精度信息
+            //     str.push('是否经过偏移：' + (data.isConverted ? '是' : '否'));
+            //     document.getElementById('result').innerHTML = str.join('<br>');
+            // }
+            // //解析定位错误信息
+            // function onError(data) {
+            //     document.getElementById('status').innerHTML='定位失败'
+            //     document.getElementById('result').innerHTML = '失败原因排查信息:'+data.message;
+            // }
+
+        });
+    </script>
+    {% endblock %}
+{% endblock %}

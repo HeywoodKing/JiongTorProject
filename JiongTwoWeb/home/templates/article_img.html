@@ -1,0 +1,89 @@
+{% extends "layout.html" %}
+{% load staticfiles %}
+{% load my_filter_tag %}
+{% load i18n %}
+
+{% block header %}
+    {% include "header.html" with title="新闻资讯" %}
+    {% block style_tag %}
+    <style>
+    </style>
+    {% endblock %}
+{% endblock %}
+
+{% block banner %}
+{% endblock %}
+
+{% block content %}
+<div class="portfolio-area sp2 bg2">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row bg3">
+                    <div class="grid">
+                        {% for item in data_list %}
+                            <div id="{{ item.id }}" class="single-portfolio col-md-3 grid-item">
+                                <div class="inner">
+                                    <div class="portfolio-img-pro">
+                                        <img src="/uploads/{{item.cover_image_url}}" alt="{{item.title}}">
+                                        <div class="hover-content">
+                                            <div>
+                                                <a href="/detail/{{item.id}}" class="button btn btn-primary">{% trans "查看详情" %}</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="portfolio-content">
+                                        <a href="/detail/{{item.id}}">
+                                            <h4>{{item.title|truncate_point:'10'}}</h4>
+                                        </a>
+    {#                                    <span>{{item.brief|truncate_point:'30'}}</span>#}
+                                    </div>
+                                </div>
+                            </div>
+                        {% empty %}
+                            <div class="single-portfolio col-md-12 text-center">还没有发布过哦！<a href="/login?callback=path">我要抢先发布！</a></div>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                {% include "pager.html" with page_list=data_list %}
+            </div>
+
+            {% comment %}<div class="col-md-3">
+                <div class="faq-sidebar-wrap bg3" style="margin-bottom: 10px;">
+                    <h3>{% trans "最新动态" %}</h3>
+                    <!--<ul class="faq-sidebar">
+                        {% for item in data_lasted %}
+                        <li><a href="/resp_detail/{{item.id}}"><span>{{ forloop.counter }}.</span>&nbsp;{{item.title}}</a></li>
+                        {% endfor %}
+                    </ul>-->
+
+                    {% for item in data_lasted %}
+                    <div class="product-commend about-img">
+                        <a href="/detail/{{item.id}}">
+                            <img src="/uploads/{{ item.cover_image_url }}" alt="{{item.title}}" title="{{item.title}}">
+                        </a>
+                        <div class="product-commend-title">{{item.title|truncate_point:'12'}}</div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>{% endcomment %}
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+
+{% block footer %}
+    {% include "footer.html" with footer="footer" %}
+    {% block script_tag %}
+    <script>
+        $(function(){
+            $('.grid').masonry({
+                itemSelector: '.grid-item',
+                //columnWidth: 200
+            });
+        });
+    </script>
+    {% endblock %}
+{% endblock %}

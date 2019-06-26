@@ -1,0 +1,106 @@
+{% extends "layout.html" %}
+{% load staticfiles %}
+{% load my_filter_tag %}
+{% load i18n %}
+
+{% block header %}
+    {% include "header.html" with title="工作机会" %}
+    {% block style_tag %}
+    <style>
+    </style>
+    {% endblock %}
+{% endblock %}
+
+{% block banner %}
+
+<!--滚动切换图片-->
+<div class="hero-slider">
+    <div class="single-slide" style="background-image: url({% static 'images/banner_7.jpg' %})">
+        <div class="inner">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <div class="slide-content">
+                            <h2 class="banner-h2">
+                                JOIN US
+                            </h2>
+                            <h4 class="banner-h4">
+                                <hr class="hr-1">
+                                <span>工作机会</span>
+                                <hr class="hr-1">
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="single-slide" style="background-image: url({% static 'images/banner_8.jpg' %})">
+        <div class="inner">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-12 text-center">
+                        <div class="slide-content">
+                            <h2 class="banner-h2">
+                                JOIN US
+                            </h2>
+                            <h4 class="banner-h4">
+                                <hr class="hr-1">
+                                <span>工作机会</span>
+                                <hr class="hr-1">
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="faq-area sp bg5">
+    <div class="container">
+        <div class="section-title">
+            <h2>{% trans "用户协议" %}</h2>
+            <div class="sub-title">
+                <hr class="hr-2">
+                <span>{% trans "底线不容践踏" %}</span>
+                <hr class="hr-2">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="faq">
+                    {% for item in job_list %}
+                    <div class="single-item">
+                        <h4>
+                            <div>
+                                <b>{{item.job_name}}</b>&nbsp;&nbsp;&nbsp;&nbsp;
+                                <span>{% if item.work_year %}{% trans "经验" %}{{item.work_year}}/{% endif %}{{item|displayName:'education'}}/{{item|displayName:'work_prop'}}</span>
+                            </div>
+                        </h4>
+                        <div class="content">
+                            {{item.content|safe}}
+                        </div>
+                    </div>
+                    {% empty %}
+                        <div class="text-center">用户协议计划正在指定中！<a href="/comment?callback=path">我要留言！</a></div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+
+{% block footer %}
+    {% include "footer.html" with footer="footer" %}
+    {% block script_tag %}
+    <script>
+        $(function(){
+        });
+    </script>
+    {% endblock %}
+{% endblock %}

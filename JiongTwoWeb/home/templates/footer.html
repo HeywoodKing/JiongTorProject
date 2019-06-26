@@ -1,0 +1,302 @@
+{% load staticfiles %}
+{% load i18n %}
+
+<!--底部div-->
+<footer>
+    <div class="footer-top">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-lg-3 footer_widget">
+                    <div class="inner">
+                        <h4>关于</h4>
+                        {% comment %}<h5><a href="#">{% trans "关于囧图" %}</a></h5>
+                        <h5><a href="#">{% trans "加入我们" %}</a></h5>
+                        <h5><a href="#">{% trans "联系我们" %}</a></h5>{% endcomment %}
+                        <ul>
+                            <li><a href="/about">{% trans "关于囧图" %}</a></li>
+                            <li><a href="/job">{% trans "加入我们" %}</a></li>
+                            <li><a href="/contact">{% trans "联系我们" %}</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 footer_widget">
+                    <div class="inner">
+                        <h4>帮助</h4>
+                        <ul>
+                            <li><a href="/user_protocol">{% trans "用户协议" %}</a></li>
+                            <li><a href="/privacy">{% trans "隐私政策" %}</a></li>
+                            <li><a href="/feedback">{% trans "用户反馈" %}</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 footer_widget">
+                    <div class="inner">
+                        <h4>关注</h4>
+                        <ul>
+                            {% comment %}<li><a href="#">{% trans "每天传递一份快乐" %}</a></li>
+                            <li><a href="#">{% trans "时刻保持一种心情" %}</a></li>
+                            <li><a href="#">{% trans "囧途不囧，因每一份成长即价值" %}</a></li>{% endcomment %}
+
+                            <li>{% trans "每天传递一份快乐" %}</li>
+                            <li>{% trans "时刻保持一种心情" %}</li>
+                            <li>{% trans "囧途不囧，因每一份成长即价值" %}</li>
+                        </ul>
+                    </div>
+                </div>
+                {% comment %}<div class="col-md-6 col-lg-3 footer_widget">
+                    <div class="inner">
+                        <h4>Recent Posts</h4>
+                        <div class="media">
+                            <a href="#">
+                                <img src="assets/img/recent1.jpg" class="d-flex mr-3" alt="">
+                            </a>
+                            <div class="media-body">
+                                <h5>
+                                    <a href="#">Curling irons are as individual as the women</a>
+                                </h5>
+                                <span>June 22, 2019</span>
+                            </div>
+                        </div>
+                        <div class="media">
+                            <a href="#">
+                                <img src="assets/img/recent2.jpg" class="d-flex mr-3" alt="">
+                            </a>
+                            <div class="media-body">
+                                <h5>
+                                    <a href="#">Curling irons are as individual as the women</a>
+                                </h5>
+                                <span>June 22, 2019</span>
+                            </div>
+                        </div>
+                        <div class="media">
+                            <a href="#">
+                                <img src="assets/img/recent3.jpg" class="d-flex mr-3" alt="">
+                            </a>
+                            <div class="media-body">
+                                <h5>
+                                    <a href="#">Curling irons are as individual as the women</a>
+                                </h5>
+                                <span>June 22, 2019</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>{% endcomment %}
+                <div class="col-md-6 col-lg-3 footer_widget">
+                    <div class="inner">
+                        <h4>地址</h4>
+{#                        <h5>深圳极壳科技有限公司</h5>#}
+                        <p>深圳市南山区南苑北路123号 <br>Phone: 177 9135 9205</p>
+                        <h4>稿件投递</h4>
+                        <form action="#" class="nw_form">
+                            <input placeholder="Enter your email" type="email">
+                            <button><i class="fa fa-paper-plane"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="copyright-txt">
+                        Copyright &copy; 2019. All rights reserved.<a target="_blank" href="#"></a>
+                    </div>
+                </div>
+                <div class="col-lg-6 text-right">
+                    <div class="footer-nav">
+{#                        <a href="/index">首页</a>#}
+                        <a href="/hot">热门</a>
+                        <a href="/new">神马</a>
+                        <a href="/text">文字</a>
+                        <a href="/img">囧图</a>
+                        <a href="/video">视频</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+</div>
+
+
+<div class="fixed-box">
+    <div id="gotoTop">
+        <span class="icon">
+            <i class="glyphicon glyphicon-open"></i>
+        </span>
+    </div>
+    {% comment %}<div>
+        <div class="fixed-box-content">
+            <a href="https://wpa.qq.com/msgrd?v=3&uin=3520989809&Site=www.sungoto.com&Menu=yes" target="_blank">{% trans "在线<br>客服" %}</a>
+        </div>
+    </div>
+    <div class="fixed-box-left-show">
+        <span class="icon">
+            <i class="glyphicon glyphicon-earphone"></i>
+        </span>
+        <div class="fixed-box-content-title">029-8918 9518</div>
+    </div>
+    <div class="fixed-box-left-show">
+        <span class="icon">
+            <i class="glyphicon glyphicon-qrcode"></i>
+        </span>
+        <div class="fixed-box-content-title fixed-box-content-qrcode">
+            <img src="{% static 'images/qrcode.jpg' %}"><br>
+        </div>
+    </div>{% endcomment %}
+</div>
+
+<script src="{% static 'plugins/jquery/jquery-3.1.0.min.js' %}"></script>
+<!--<script src="{% static 'plugins/jquery/jquery.i18n.properties.min.js' %}"></script>
+<script src="{% static 'js/language.js' %}"></script>-->
+<script src="{% static 'plugins/imagesloaded.pkgd.min.js' %}"></script>
+<script src="{% static 'plugins/masonry.pkgd.min.js' %}"></script>
+<script src="{% static 'js/vendor/popper.min.js' %}"></script>
+<script src="{% static 'plugins/bootstrap/js/bootstrap.min.js' %}"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.10/dist/js/bootstrap-select.min.js"></script>
+<!--<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.10/dist/js/i18n/defaults-zh_CN.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.10/dist/js/i18n/defaults-en_US.min.js"></script>-->
+<script src="{% static 'plugins/layui/layui.all.js' %}"></script>
+<script src="{% static 'js/vendor/owl.carousel.min.js' %}"></script>
+<script src="{% static 'js/vendor/isotope.pkgd.min.js' %}"></script>
+<script src="{% static 'js/vendor/jquery.barfiller.js' %}"></script>
+<script src="{% static 'js/vendor/loopcounter.js' %}"></script>
+<script src="{% static 'js/vendor/slicknav.min.js' %}"></script>
+<script src="{% static 'js/active.js' %}"></script>
+
+<script>
+    $(function(){
+        //公共footer
+        <!--alert('I am footer.html的js');-->
+        //头部菜单导航栏选中时候的显示样式
+        var index = {{ index }};
+        var i = index - 1;
+        $('#menu').find('ul').find('li:eq(' + i + ')').addClass('current-menu-item');
+
+
+        /*页面右侧悬浮固定功能 start*/
+        var topDistance = 600;//gotoTop距浏览器顶端的距离，这个距离可以根据你的需求修改
+        var showDistance = 1;//距离浏览器顶端多少距离开始显示gotoTop按钮，这个距离也可以修改，但不能超过浏览器默认宽度，为了兼容不同分辨率的浏览器，我建议在这里设置值为1；
+        var thisTop = $(window).scrollTop() + topDistance;
+
+        //定义一个变量，方便后面加入在html元素标签中插入这个gotoTop按钮的标签
+        var gotoTopButton = '<div id="gotoTop"><span class="icon"><i class="glyphicon glyphicon-open"></i></span></div>';
+        //在container的div里插入我们前面定义好的html标签元素
+        //$(".fixed-box").append(gotoTopButton);
+        //$("#gotoTop").css("top",thisTop);//设置gotoTop按钮top的css属性和属性值
+
+
+        if($(window).scrollTop() < showDistance) {
+            $("#gotoTop").hide();//滚动条距离顶端的距离小于showDistance是隐藏gotoTop按钮
+        }
+
+        $(window).scroll(function(){
+            thisTop = $(this).scrollTop() + topDistance;
+            $("#gotoTop").css("top", thisTop);//修改gotoTop按钮的top距离
+            if($(this).scrollTop() < showDistance) {//当window的垂直滚动条距顶部距离小于showDistance设置的值 时
+                $("#gotoTop").fadeOut("fast");//gotoTop按钮淡出
+            } else {
+                $("#gotoTop").fadeIn("fast");//反之按钮淡入
+            }
+        });
+
+        //绑定click事件
+        $('#gotoTop').on('click', function(){
+            //点击go to top按钮时，以800的速度回到顶部，这里的800可以根据你的需求修改
+            $('html,body').animate({scrollTop:0}, 'slow');
+            <!--$('html,body').animate({scrollTop:0}, '500');-->
+            return false;
+        });
+        /*页面右侧悬浮固定功能 end*/
+
+
+        //鼠标移入移出事件
+        $('.fixed-box-left-show').hover(function() {
+            // 鼠标移入时添加hover类
+            $(this).children('.fixed-box-content-title').css('display', 'block');
+        }, function() {
+            // 鼠标移出时移出hover类
+            $(this).children('.fixed-box-content-title').css('display', 'none');
+        });
+
+        //登录窗口
+        $('.login').on('click', function(){
+            layer.open({
+                type: 2,
+                title: "用户登陆",
+                area: ['450px', '300px'],
+                // area: ['25%', '35%'],
+                content: "/login",
+                zIndex: layer.zIndex,
+                {#btn: ['登录', '取消'],#}
+                /*success: function(o, index){
+                    // layer.close(index);
+                    layer.msg('success...');
+                    console.log('layer.open success');
+                    return false;
+                },*/
+                yes: function (index, o){
+                    var body = layer.getChildFrame('body', index);
+                    console.log(body);
+                    var iframeWin = window[o.find('iframe')[0]['name']];
+                    console.log(iframeWin);
+
+                    console.log($('#myform').serialize());
+                    $.ajax({
+                        type: 'POST',
+                        url: '/login',
+                        data: $('#myform').serialize(),
+                        dataType: 'json',
+                        timeout: 3000,
+                        success: function(data, textStatus){
+                            if(data.code == 0) {
+                                layer.msg('登录成功！', {
+                                    icon: 1,
+                                    zIndex: layer.zIndex + 10,
+                                    time: 2000,
+                                }, function(){
+                                    window.location.href = '/index';
+                                });
+
+                                {#layer.msg('您的信息已提交，工作人员正在处理中，请稍后...');#}
+                            }else{
+                                layer.msg(data.msg, {
+                                    icon: 2,
+                                    zIndex: layer.zIndex + 10,
+                                    time: 3000,
+                                }, function(){
+                                    //
+                                });
+                            }
+                        },
+                        error: function(xhr, textStatus, errorThrown){
+                            console.log(textStatus + ">>" + errorThrown);
+                        },
+                        complete: function(xhr, textStatus){
+                        }
+                    });
+                },
+                btn2: function (index, o){
+                    {#右下角取消按钮#}
+                    layer.msg('取消');
+                    {#layer.close(0);#}
+                },
+                cancel: function (index, o) {
+                    {#右上角关闭X#}
+                    layer.msg('关闭');
+                    {#layer.close();#}
+                }
+            });
+        });
+
+    });
+</script>
+
+{% block script_tag %}
+{% endblock %}
+
+</body>
+</html>

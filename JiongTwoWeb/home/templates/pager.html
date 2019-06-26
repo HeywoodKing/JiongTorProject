@@ -1,0 +1,54 @@
+{% load my_filter_tag %}
+
+{% if page_list.paginator.num_pages > 1 %}
+<div class="row">
+    <div class="col-12 text-center" data-margin="0 0 0 0">
+        <!--<a href="#" class="button">More Works</a>-->
+        <nav aria-label="Page navigation">
+            <!--<span>
+                当前第 {{ page_list.number }} 页&nbsp;&nbsp;&nbsp;&nbsp;共{{ page_list.paginator.num_pages }}页
+            </span>-->
+            <ul class="pager">
+
+                {% if page_list.has_previous %}
+                    <li>
+                        <a href="?page={{ page_list.previous_page_number }}" aria-label="Previous">
+                            <span aria-hidden="true">&lsaquo;</span>
+                        </a>
+                    </li>
+                {% else %}
+                    <li class="disabled">
+                        <a href="javascript:void(0);" aria-label="Previous">
+                            <span aria-hidden="true">&lsaquo;</span>
+                        </a>
+                    </li>
+                {% endif %}
+
+                {% for pg in page_list.paginator.page_range %}
+                    <!--{% if page_list.number == pg %}
+                        <li class="active"><a href="?page={{ pg }}">{{ pg }}</a></li>
+                    {% else %}
+                        <li><a href="?page={{ pg }}">{{ pg }}</a></li>
+                    {% endif %}-->
+
+                    {% circle_page page_list.number pg %}
+                {% endfor %}
+
+                {% if page_list.has_next %}
+                    <li>
+                        <a href="?page={{ page_list.next_page_number }}" aria-label="Next">
+                            <span aria-hidden="true">&rsaquo;</span>
+                        </a>
+                    </li>
+                {% else %}
+                    <li class="disabled">
+                        <a href="javascript:void(0);" aria-label="Next">
+                            <span aria-hidden="true">&rsaquo;</span>
+                        </a>
+                    </li>
+                {% endif %}
+            </ul>
+        </nav>
+    </div>
+</div>
+{% endif %}

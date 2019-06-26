@@ -1,0 +1,550 @@
+{% extends "layout.html" %}
+{% load staticfiles %}
+{% load i18n %}
+{% load my_filter_tag %}
+
+{% block header %}
+    {% include "header.html" with title="首页" %}
+    {% block style_tag %}
+    <style>
+
+    </style>
+    {% endblock %}
+{% endblock %}
+
+{% block banner %}
+<div class="hero-slider">
+    <div class="single-slide" style="background-image: url({% static 'images/banner_8.jpg' %})">
+        <div class="inner">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="slide-content">
+                            <h2>有趣的事情总是让人流连忘返.</h2>
+                            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+                            <div class="slide-btn">
+                                <a href="#" class="button btn btn-default">Learn More</a>
+                                <a href="#" class="button-2 btn btn-default">Live Preview</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="single-slide" style="background-image: url({% static 'images/banner_8.jpg' %})">
+        <div class="inner">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-6 text-center">
+                        <div class="slide-content">
+                            <h2>不知道的另一个自己.</h2>
+                            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+                            <div class="slide-btn">
+                                <a href="#" class="button btn btn-default">Learn More</a>
+                                <a href="#" class="button-2 btn btn-default">Live Preview</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="single-slide" style="background-image: url({% static 'images/banner_8.jpg' %})">
+        <div class="inner">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="slide-content">
+                            <h2>囧图首届大赛作品.</h2>
+                            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+                            <div class="slide-btn">
+                                <a href="#" class="button btn btn-default">Learn More</a>
+                                <a href="#" class="button-2 btn btn-default">Live Preview</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 text-center">
+                        <div class="inner embed-responsive embed-responsive-16by9" data-margin="25px 0 0">
+                            <iframe width="560" height="315" src="" frameborder="0" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--滚动切换图片-->
+{% comment %}<div class="hero-slider">
+    <div class="single-slide" style="background-image: url({% static 'images/banner_8.jpg' %})">
+        <div class="inner">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <div class="slide-content">
+                            <h2>{% trans "华夏传统美食的国际级复刻者" %}</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="single-slide" style="background-image: url({% static 'images/banner_7.jpg' %})">
+        <div class="inner">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-12 text-center">
+                        <div class="slide-content">
+                            <h2>{% trans "华夏传统美食的国际级复刻者" %}</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="single-slide" style="background-image: url({% static 'images/banner_7.jpg' %})">
+        <div class="inner">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-12 text-center">
+                        <div class="slide-content">
+                            <h2>{% trans "华夏传统美食的国际级复刻者" %}</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>{% endcomment %}
+{% endblock %}
+
+{% block content %}
+{% comment %}<div class="portfolio-area">
+    <div class="container-fluid pdlr-150">
+        <div class="row">
+            {% for item in index_plate_list %}
+            <div class="col-md-3 animated {{item.animate_type.class_name}}">
+                <div class="inner">
+                    <div class="outer">
+                        <div class="front">
+                            <img src="/uploads/{{item.front_image}}" alt="{{item.title}}">
+                            <div class="front-content">
+                                <img src="/uploads/{{item.plate_image_url}}">
+                                <hr>
+                                <h2>{% trans item.title %}</h2>
+                            </div>
+                        </div>
+                        <div class="back">
+                            <img src="/uploads/{{item.back_image}}" alt="{{item.title}}">
+                            <div class="back-content">
+                                <img src="/uploads/{{item.plate_image_url}}">
+                                <hr>
+                                {% if item.is_redirect_sub_page %}
+                                <h2><a href="{{item.sub_page_url}}">{% trans item.title %}</a></h2>
+                                <a href="{{item.sub_page_url}}">
+                                    <div>
+                                        <span style="color:#fff;">{% trans item.descr|truncate_point:'50' %}</span>
+                                    </div>
+                                </a>
+                                {% else %}
+                                <h2>
+                                    <a href="javascript:void(0);" class="video-play" data-image="/uploads/{{item.front_image}}"
+                                       data-source="/uploads/{{item.video_source}}">{% trans item.title %}</a>
+                                </h2>
+                                <a href="javascript:void(0);" class="video-play" data-image="/uploads/{{item.front_image}}"
+                                   data-source="/uploads/{{item.video_source}}">
+                                    <div>
+                                        <span style="color:#fff;">{% trans item.descr|truncate_point:'50' %}</span>
+                                    </div>
+                                </a>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>{% endcomment %}
+
+<div class="brand-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-6 single-brand">
+                <div class="inner">
+                    <a href="#">
+                        <img src="{% static 'images/brand1.png' %}" alt="">
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-3 col-6 single-brand">
+                <div class="inner">
+                    <a href="#">
+                        <img src="{% static 'images/brand2.png' %}" alt="">
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-3 col-6 single-brand">
+                <div class="inner">
+                    <a href="#">
+                        <img src="{% static 'images/brand3.png' %}" alt="">
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-3 col-6 single-brand">
+                <div class="inner">
+                    <a href="#">
+                        <img src="{% static 'images/brand4.png' %}" alt="">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="service-area bg2 sp">
+    <div class="container">
+        <div class="section-title">
+            <h2>经典桥段</h2>
+            <p>Malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae.</p>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-md-6 single-service">
+                <div class="inner">
+                    <div class="title">
+                        <div class="icon">
+                            <i class="fa fa-film"></i>
+                        </div>
+                        <h4>Video Making</h4>
+                    </div>
+                    <div class="content">
+                        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 single-service">
+                <div class="inner">
+                    <div class="title">
+                        <div class="icon">
+                            <i class="fa fa-camera"></i>
+                        </div>
+                        <h4>Photography</h4>
+                    </div>
+                    <div class="content">
+                        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 single-service">
+                <div class="inner">
+                    <div class="title">
+                        <div class="icon">
+                            <i class="fa fa-music"></i>
+                        </div>
+                        <h4>Music Composing</h4>
+                    </div>
+                    <div class="content">
+                        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 single-service">
+                <div class="inner">
+                    <div class="title">
+                        <div class="icon">
+                            <i class="fa fa-bullhorn"></i>
+                        </div>
+                        <h4>Product Marketing</h4>
+                    </div>
+                    <div class="content">
+                        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 single-service">
+                <div class="inner">
+                    <div class="title">
+                        <div class="icon">
+                            <i class="fa fa-magic"></i>
+                        </div>
+                        <h4>Video Editing</h4>
+                    </div>
+                    <div class="content">
+                        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 single-service">
+                <div class="inner">
+                    <div class="title">
+                        <div class="icon">
+                            <i class="fa fa-bar-chart"></i>
+                        </div>
+                        <h4>Presentation</h4>
+                    </div>
+                    <div class="content">
+                        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="portfolio-area sp">
+    <div class="container">
+        <div class="section-title">
+            <h2>有图有真相</h2>
+            <p>Malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae.</p>
+        </div>
+        <div class="row">
+            <div class="single-portfolio col-md-4">
+                <div class="inner">
+                    <div class="portfolio-img">
+                        <img src="{% static 'images/pro_1.jpg' %}" alt="portfolio-image">
+                        <div class="hover-content">
+                            <div>
+                                <a href="#" class="button">View Case Study</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <a href="#"><h3>The Back Chiropractor</h3></a>
+                        <span>Ceramics, Design</span>
+                    </div>
+                </div>
+            </div>
+            <div class="single-portfolio col-md-4">
+                <div class="inner">
+                    <div class="portfolio-img">
+                        <img src="{% static 'images/pro_2.jpg' %}" alt="portfolio-image">
+                        <div class="hover-content">
+                            <div>
+                                <a href="#" class="button">View Case Study</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <a href="#"><h3>The Back Chiropractor</h3></a>
+                        <span>Ceramics, Design</span>
+                    </div>
+                </div>
+            </div>
+            <div class="single-portfolio col-md-4">
+                <div class="inner">
+                    <div class="portfolio-img">
+                        <img src="{% static 'images/pro_3.jpg' %}" alt="portfolio-image">
+                        <div class="hover-content">
+                            <div>
+                                <a href="#" class="button">View Case Study</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <a href="#"><h3>The Back Chiropractor</h3></a>
+                        <span>Ceramics, Design</span>
+                    </div>
+                </div>
+            </div>
+            <div class="single-portfolio col-md-4">
+                <div class="inner">
+                    <div class="portfolio-img">
+                        <img src="{% static 'images/pro_4.jpg' %}" alt="portfolio-image">
+                        <div class="hover-content">
+                            <div>
+                                <a href="#" class="button">View Case Study</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <a href="#"><h3>The Back Chiropractor</h3></a>
+                        <span>Ceramics, Design</span>
+                    </div>
+                </div>
+            </div>
+            <div class="single-portfolio col-md-4">
+                <div class="inner">
+                    <div class="portfolio-img">
+                        <img src="{% static 'images/pro_5.jpg' %}" alt="portfolio-image">
+                        <div class="hover-content">
+                            <div>
+                                <a href="#" class="button">View Case Study</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <a href="#"><h3>The Back Chiropractor</h3></a>
+                        <span>Ceramics, Design</span>
+                    </div>
+                </div>
+            </div>
+            <div class="single-portfolio col-md-4">
+                <div class="inner">
+                    <div class="portfolio-img">
+                        <img src="{% static 'images/pro_6.jpg' %}" alt="portfolio-image">
+                        <div class="hover-content">
+                            <div>
+                                <a href="#" class="button">View Case Study</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <a href="#"><h3>The Back Chiropractor</h3></a>
+                        <span>Ceramics, Design</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 text-center" data-margin="40px 0 0">
+                <a href="#" class="button">More Works</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="testimonial-area sp bg1">
+    <div class="container">
+        <div class="section-title white">
+            <h2>囧大神</h2>
+            <p>Malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae.</p>
+        </div>
+        <div class="testimonial-slider">
+            <div class="single-slide">
+                <div class="inner">
+                    <p>When I was just starting 6th grade I got my first job. Paperboy! Boy, was I excited. At that time I had spent a lot of time actually playing the video official.</p>
+                    <div class="client-info">
+                        <div class="client-img">
+                            <img src="{% static 'images/default_man.png' %}" alt="client">
+                        </div>
+                        <div class="client-data">
+                            <h4>Jhon Doe</h4>
+                            <span>Designer</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="single-slide">
+                <div class="inner">
+                    <p>When I was just starting 6th grade I got my first job. Paperboy! Boy, was I excited. At that time I had spent a lot of time actually playing the video official.</p>
+                    <div class="client-info">
+                        <div class="client-img">
+                            <img src="{% static 'images/default_woman.png' %}" alt="client">
+                        </div>
+                        <div class="client-data">
+                            <h4>Jhon Doe</h4>
+                            <span>Designer</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="single-slide">
+                <div class="inner">
+                    <p>When I was just starting 6th grade I got my first job. Paperboy! Boy, was I excited. At that time I had spent a lot of time actually playing the video official.</p>
+                    <div class="client-info">
+                        <div class="client-img">
+                            <img src="{% static 'images/default_man.png' %}" alt="client">
+                        </div>
+                        <div class="client-data">
+                            <h4>Jhon Doe</h4>
+                            <span>Designer</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="single-slide">
+                <div class="inner">
+                    <p>When I was just starting 6th grade I got my first job. Paperboy! Boy, was I excited. At that time I had spent a lot of time actually playing the video official.</p>
+                    <div class="client-info">
+                        <div class="client-img">
+                            <img src="{% static 'images/default_man2.png' %}" alt="client">
+                        </div>
+                        <div class="client-data">
+                            <h4>Jhon Doe</h4>
+                            <span>Designer</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="faq-area sp bg2">
+    <div class="container">
+        <div class="section-title">
+            <h2>Frequently Asked Questions</h2>
+            <p>Malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae.</p>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="faq">
+                    <div class="single-item">
+                        <h4>Low Cost Advertising Available or Not?</h4>
+                        <div class="content">
+                            Pellentesque habitant morbi tristique senectus et netus et malesu ada fames and reply to all.
+                        </div>
+                    </div>
+                    <div class="single-item">
+                        <h4>What Is The Big R For Marketing Your Business?</h4>
+                        <div class="content">
+                            Pellentesque habitant morbi tristique senectus et netus et malesu ada fames and reply to all.
+                        </div>
+                    </div>
+                    <div class="single-item">
+                        <h4>Does Using Banner Stands Increase Trade Show Traffic?</h4>
+                        <div class="content">
+                            Pellentesque habitant morbi tristique senectus et netus et malesu ada fames and reply to all.
+                        </div>
+                    </div>
+                    <div class="single-item">
+                        <h4>How To Write Better Advertising Copy?</h4>
+                        <div class="content">
+                            Pellentesque habitant morbi tristique senectus et netus et malesu ada fames and reply to all.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="faq-img text-center">
+                    <img src="{% static 'images/fag-img.png' %}" alt="faq">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+
+{% block footer %}
+    {% include "footer.html" with footer="footer" %}
+    {% block script_tag %}
+    <script>
+        $(function(){
+
+        });
+
+        //进入全屏
+        function fullScreen(){
+            var ele = document.documentElement;
+            if(ele.requestFullscreen){
+                ele.requestFullscreen();
+            }else if(ele.mozRequestFullScreen){
+                ele.mozRequestFullScreen();
+            }else if(ele.webkitRequestFullScreen){
+                ele.webkitRequestFullScreen();
+            }
+        }
+
+        //退出全屏
+        function exitFullScreen(){
+            var de = document;
+            if (de.exitFullscreen) {
+                de.exitFullscreen();
+            } else if (de.mozCancelFullScreen) {
+                de.mozCancelFullScreen();
+            } else if (de.webkitCancelFullScreen) {
+                de.webkitCancelFullScreen();
+            }
+        }
+    </script>
+    {% endblock %}
+{% endblock %}

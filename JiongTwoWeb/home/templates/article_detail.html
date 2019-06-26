@@ -1,0 +1,89 @@
+{% extends "layout.html" %}
+{% load staticfiles %}
+{% load my_filter_tag %}
+{% load i18n %}
+
+{% block header %}
+    {% include "header.html" with title="新闻资讯详情" %}
+    {% block style_tag %}
+    <style>
+    </style>
+    {% endblock %}
+{% endblock %}
+
+{% block banner %}
+
+{% endblock %}
+
+{% block content %}
+<div class="faq-area-2 sp2 bg2">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="row" style="margin-bottom: 10px;">
+                    <div class="col-md-12">
+                        <div class="single-faq bg3">
+                            <a href="#" onclick="javascript:history.back(-1);">返回</a>
+                            <h2>{{ article.title|truncate_point:'30' }}</h2>
+                            <div>
+                                <span class="icon" style="margin-left: 10px;">
+                                    <i class="glyphicon glyphicon-time"></i>
+                                    {{ article.create_time }}
+                                </span>
+                                <span class="icon" style="margin-left: 10px;">
+                                    <i class="glyphicon glyphicon-eye-open"></i>
+                                    {{ article.read_count }}
+                                </span>
+                                <span class="icon" style="margin-left: 10px;">
+                                    <i class="glyphicon glyphicon-thumbs-up"></i>
+                                    +{{ article.like_count }}
+                                </span>
+                                <span class="icon" style="margin-left: 10px;">
+                                    <i class="glyphicon glyphicon-thumbs-down"></i>
+                                    +{{ article.oppose_count }}
+                                </span>
+                            </div>
+                            <hr style="border-top: 1px solid #eeeeee;">
+                            <div>{{ article.content|safe }}</div>
+                        </div>
+                    </div>
+                </div>
+
+                {% include "pager.html" with page_list=data_list %}
+            </div>
+            <div class="col-md-4">
+                <div class="row bg3">
+                    <div class="col-md-12">
+                        <div class="faq-sidebar-wrap">
+                            <h3>{% trans "最新动态" %}</h3>
+                            <div class="row">
+                                {% for item in data_lasted %}
+                                    <div class="col-md-6">
+                                        <div class="product-commend about-img-2">
+                                            <a href="/detail/{{item.id}}">
+                                                <img src="/uploads/{{ item.cover_image_url }}" alt="{{item.title}}" title="{{item.title}}">
+                                            </a>
+                                            <div class="product-commend-title">{{item.title|truncate_point:'9'}}</div>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+
+{% block footer %}
+    {% include "footer.html" with footer="footer" %}
+    {% block script_tag %}
+    <script>
+        $(function(){
+        });
+    </script>
+    {% endblock %}
+{% endblock %}

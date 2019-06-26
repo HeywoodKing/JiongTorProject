@@ -1,0 +1,304 @@
+{% extends "layout.html" %}
+{% load staticfiles %}
+{% load i18n %}
+
+{% block header %}
+    {% include "header.html" with title="关于我们" %}
+    {% block style_tag %}
+    <link rel="stylesheet" href="{% static 'css/timeline.css' %}">
+    <style>
+    </style>
+    {% endblock %}
+{% endblock %}
+
+{% block banner %}
+
+<!--滚动切换图片-->
+<div class="hero-slider">
+    <div class="single-slide" style="background-image: url({% static 'images/banner_8.jpg' %})">
+        <div class="inner">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-12 text-center">
+                        <div class="slide-content">
+                            <h2 class="banner-h2">
+                                ABOUT US
+                            </h2>
+                            <h4 class="banner-h4">
+                                <hr class="hr-1">
+                                <span>我们传递价值信息，让您的信息产生价值</span>
+                                <hr class="hr-1">
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="single-slide" style="background-image: url({% static 'images/banner_7.jpg' %})">
+        <div class="inner">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <div class="slide-content">
+                            <h2 class="banner-h2">
+                                ABOUT US
+                            </h2>
+                            <h4 class="banner-h4">
+                                <hr class="hr-1">
+                                <span>{% trans "囧途不囧，每一份价值都值得托付！" %}</span>
+                                <hr class="hr-1">
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="single-slide" style="background-image: url({% static 'images/banner_8.jpg' %})">
+        <div class="inner">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-12 text-center">
+                        <div class="slide-content">
+                            <h2 class="banner-h2">
+                                ABOUT US
+                            </h2>
+                            <h4 class="banner-h4">
+                                <hr class="hr-1">
+                                <span>集搞笑，经典，名言，段子，囧图，糗事等等以及您身边发生的每一件事都可以托付</span>
+                                <hr class="hr-1">
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+{% comment %}<div class="service-area bg2 sp">
+    <div class="container">
+        <div class="section-title">
+            <h2>{% trans "公司简介" %}
+            </h2>
+            <div class="sub-title">
+                <hr class="hr-2">
+                <span style="color: #000;">ABOUT</span>
+                <hr class="hr-2">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-md-6 single-service">
+                <div class="">
+                    {% if comp_about_model %}
+                        <img src="/uploads/{{ comp_about_model.comp_image }}" alt="portfolio-image">
+                    {% endif %}
+                </div>
+            </div>
+            <div class="col-lg-8 col-md-6 single-service">
+                <div class="inner" style="padding: 0;">
+                    <div>
+                        <h2><i>{% trans comp_about_model.title %}</i></h2>
+                        <p style="text-indent:2em; font-size:16px; letter-spacing:1px;">
+                            {% trans comp_about_model.content|safe %}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>{% endcomment %}
+
+<div class="about-area sp">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="about-content">
+                    <h3>囧途</h3>
+                    <p>
+                        「囧途」是国内首个集原创搞笑，经典，名言，奇葩，囧图等内容的 UGC 社区，创建于2014年，以“快乐共分享，价值永传递”的产品理念。从 PC 时代到移动互联网时代，时间的碎片化进入全新时代。「囧途」的内容包括图文视频等，
+作为国内原创搞笑内容社区，「囧途」为社区良好的创作交流氛围提供了坚实的养分；「囧途」通过机器审核、用户审核、官方运营审核三方评审的内容审核分发机制，形成良性文化社区，2015年「囧途」即完成了注册用户从 0 到 300 万的突破。
+在路上，我们将一起快乐出发，不忘初心，继续为分享快乐，传递价值而努力。
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="about-img">
+                    <img src="{% static 'images/fag-img.png' %}" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% if culture %}
+<div class="gallery-area bg5 sp">
+    <div class="container">
+        <div class="section-title" data-margin="0 0 40px">
+            <h2>{% trans "企业文化" %}</h2>
+            <div class="section-title-bg">
+                <div class="section-title-bg-box" style=""></div>
+            </div>
+            <div class="sub-title">
+                <hr class="hr-2">
+                <span>我们的理念：绿色、健康、安全</span>
+                <hr class="hr-2">
+            </div>
+        </div>
+        <div class="row">
+            {% for item in culture %}
+            <div class="col-md-12 single-gallery">
+                <div class="inner">
+                    <img src="/uploads/{{item.image_url}}" alt="企业文化">
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endif %}
+
+{% comment %}{% if honor %}
+<div class="gallery-area bg6 sp">
+    <div class="container">
+        <div class="section-title" data-margin="0 0 40px">
+            <h2>{% trans "品牌荣誉" %}</h2>
+            <div class="section-title-bg">
+                <div class="section-title-bg-box" style=""></div>
+            </div>
+            <div class="sub-title">
+                <hr class="hr-2">
+                <span>HORNOR</span>
+                <hr class="hr-2">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row">
+                    {% for item in honor %}
+                    <div class="col-sm-4 single-gallery">
+                        <div class="inner">
+                            <img src="/uploads/{{item.image_url}}" alt="{{item.type_name}}" style="height: 220px;">
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}{% endcomment %}
+
+{% comment %}{% if aptitude %}
+<div class="gallery-area bg5 sp">
+    <div class="container">
+        <div class="section-title" data-margin="0 0 40px">
+            <h2>{% trans "企业资质" %}</h2>
+            <div class="section-title-bg">
+                <div class="section-title-bg-box" style=""></div>
+            </div>
+            <div class="sub-title">
+                <hr class="hr-2">
+                <span>APTITUDE</span>
+                <hr class="hr-2">
+            </div>
+        </div>
+        <div class="row">
+            <div class="grid">
+                {% for item in aptitude %}
+                <div class="col-sm-4 single-gallery grid-item">
+                    <div class="inner">
+                        <img src="/uploads/{{item.image_url}}" alt="{{item.type_name}}">
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</div>
+{% endif %}{% endcomment %}
+
+{% comment %}{% if comp_history_list %}
+<div class="faq-area bg6 sp">
+    <div class="container">
+        <div class="section-title">
+            <h2>{% trans "发展历程" %}</h2>
+            <div class="section-title-bg">
+                <div class="section-title-bg-box" style=""></div>
+            </div>
+            <div class="sub-title">
+                <hr class="hr-2">
+                <span>DEVELOPMENT HISTORY</span>
+                <hr class="hr-2">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-1">
+                <ul class="timeline timeline-centered">
+                    {% for item in comp_history_list %}
+                    <li class="timeline-item">
+                        <div class="timeline-info">
+                            <div class="timeline-info-bg">
+                                <h3>{{ item.timeline_title }}</h3>
+                                <p>{{ item.title }}</p>
+                            </div>
+                            <div class="arrow"></div>
+                        </div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <!--<h3 class="timeline-title">Event Title</h3>
+                            <p>Nullam vel sem. Nullam vel sem. Integer ante arcu, accumsan a, consectetuer eget, posuere ut, mauris. Donec orci lectus, aliquam ut, faucibus non, euismod id, nulla. Donec vitae sapien ut libero venenatis faucibus. ullam dictum felis
+                                eu pede mollis pretium. Pellentesque ut neque.</p>-->
+                            <img src="/uploads/{{item.cover_image_url}}" alt="{{ item.timeline_title }}">
+                        </div>
+                    </li>
+                    {% endfor %}
+
+                    <li class="timeline-item period">
+                        <div class="timeline-info"></div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h4 class="timeline-title">FUTURE</h4>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}{% endcomment %}
+
+<div class="page-bottom-title sp page-bottom-bg">
+    <div class="container text-center">
+        <h2 class="banner-h3" style="color:rgb(255,255,255,0.8);">
+            {% trans "愿景规划" %}
+        </h2>
+        <h4 class="banner-h4">
+            <hr class="hr-1">
+            <span>VISION</span>
+            <hr class="hr-1">
+        </h4>
+        <p style="color:rgb(255,255,255,0.8); letter-spacing:1px;">{% trans '每天传递一份快乐，时刻保持一种心情，囧途不囧，因每一份成长都有价值' %}</p>
+    </div>
+</div>
+
+{% endblock %}
+
+
+{% block footer %}
+    {% include "footer.html" with footer="footer" %}
+    {% block script_tag %}
+    <script>
+        $(function(){
+            $('.grid').masonry({
+                itemSelector: '.grid-item',
+                // columnWidth: 200
+            });
+        });
+    </script>
+    {% endblock %}
+{% endblock %}

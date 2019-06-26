@@ -1,0 +1,205 @@
+{% extends "layout.html" %}
+{% load staticfiles %}
+{% load my_filter_tag %}
+{% load i18n %}
+
+{% block header %}
+    {% include "header.html" with title="新闻资讯" %}
+    {% block style_tag %}
+    <style>
+    </style>
+    {% endblock %}
+{% endblock %}
+
+{% block banner %}
+{% endblock %}
+
+{% block content %}
+<div class="faq-area-2 sp2 bg2">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                {% for item in data_list %}
+                <div id="{{ item.id }}" class="row bg3" style="padding-top: 25px; padding-left: 10px; padding-right: 10px; padding-bottom: 10px; margin-bottom: 15px;">
+                    <div class="col-sm-12 col-md-12 col-lg-12">
+                        <div class="inner">
+                            <div>
+                                <a href="/detail/{{item.id}}" style="margin-right: 10px;">
+{#                                    <img src="{% static 'images/default_woman.png' %}" class="d-flex mr-3" alt="" style="width: 20px;">#}
+                                    <img src="/uploads/{{ item.user.avatar }}" class="d-flex mr-3" alt="" style="width: 20px;">
+                                </a>
+                                <span style="margin-right: 10px;">
+                                    <a href="/user/{{item.create_uid}}">{{ item.user.nick_name }}</a>
+                                </span>
+                                <span class="label label-info" style="margin-right: 10px;">
+                                    {% if item.user.sex == '1' %}
+                                        ♂&nbsp;&nbsp;{{ item.user.birthday|date:'y' }}
+                                    {% elif item.user.sex == '2' %}
+                                        ♀&nbsp;&nbsp;{{ item.user.birthday }}
+                                    {% else %}
+                                        未知
+                                    {% endif %}
+                                </span>
+                                <a href="javascript::void(0);">
+                                    <span class="icon label label-default">
+                                        <i class="glyphicon glyphicon-flash">
+                                        </i>
+                                        +{{ item.like_count }}
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-12 col-lg-12">
+                        <div class="about-content">
+{#                            <h3 style="margin: 5px 0;"><a href="/news_detail/11">fsdafasdfasdfasdfadsfadfafasdf</a></h3>#}
+                            <a href="/detail/{{item.id}}">
+                                {% comment %}{% if item.cover_image_url %}
+                                <img src="/uploads/{{item.cover_image_url}}">
+                                {% endif %}{% endcomment %}
+                                <span>
+                                    {{item.content|truncate_point:'300'|safe}}
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-12 col-lg-12">
+                        <div class="pull-left">
+                            <a href="javascript::void(0);">
+                                <span class="icon" style="font-size: 18px;">
+                                    <i class="glyphicon glyphicon-thumbs-up"></i>
+                                </span>
+                                <sup style="margin-left: -3px; margin-right: 15px;">+{{ item.like_count }}</sup>
+                            </a>
+                            <a href="javascript::void(0);">
+                                <span class="icon" style="font-size: 18px;">
+                                    <i class="glyphicon glyphicon-thumbs-down"></i>
+                                </span>
+                                <sup style="margin-left: -3px; margin-right: 15px;">+{{ item.oppose_count }}</sup>
+                            </a>
+                            <a href="javascript::void(0);">
+                                <span class="icon" style="font-size: 18px;">
+                                    <i class="glyphicon glyphicon-comment"></i>
+                                </span>
+                                <sup style="margin-left: -3px; margin-right: 15px;">+{{ item.comment_count }}</sup>
+                            </a>
+                        </div>
+                        {% comment %}<div class="pull-right">
+                            <span class="icon" style="font-size: 22px; margin-left: 15px;">
+                                <i class="glyphicon glyphicon-thumbs-up"></i>
+                            </span>
+                            <span class="icon" style="font-size: 22px; margin-left: 15px;">
+                                <i class="glyphicon glyphicon-thumbs-down"></i>
+                            </span>
+                            <span class="icon" style="font-size: 22px; margin-left: 15px;">
+                                <i class="glyphicon glyphicon-comment"></i>
+                            </span>
+                        </div>{% endcomment %}
+                    </div>
+                </div>
+                {% empty %}
+                        <div class="col-md-12 text-center">别人还没有发现此地！<a href="/login?callback=path">我要抢鲜发布！</a></div>
+                {% endfor %}
+
+                {% include "pager.html" with page_list=data_list %}
+            </div>
+            <div class="col-md-3">
+                <div class="faq-sidebar-wrap bg3" style="margin-bottom: 10px;">
+                    <h3>{% trans "最新动态" %}</h3>
+                    <!--<ul class="faq-sidebar">
+                        {% for item in data_lasted %}
+                        <li><a href="/resp_detail/{{item.id}}"><span>{{ forloop.counter }}.</span>&nbsp;{{item.title}}</a></li>
+                        {% endfor %}
+                    </ul>-->
+
+                    {% for item in data_lasted %}
+                    <div class="product-commend about-img-1">
+                        <a href="/detail/{{item.id}}">
+                            <img src="/uploads/{{ item.cover_image_url }}" alt="{{item.title}}" title="{{item.title}}">
+                        </a>
+                        <div class="product-commend-title">{{item.title|truncate_point:'12'}}</div>
+                    </div>
+                    {% endfor %}
+                </div>
+
+                {% comment %}<div class="faq-sidebar-wrap bg3" style="margin-bottom: 10px;">
+                    <h3>{% trans "最新动态" %}</h3>
+                    <!--<ul class="faq-sidebar">
+                        {% for item in data_lasted %}
+                        <li><a href="/resp_detail/{{item.id}}"><span>{{ forloop.counter }}.</span>&nbsp;{{item.title}}</a></li>
+                        {% endfor %}
+                    </ul>-->
+
+                    {% for item in data_lasted %}
+                    <div class="product-commend about-img">
+                        <a href="/detail/{{item.id}}">
+                            <img src="/uploads/{{ item.cover_image_url }}" alt="{{item.title}}" title="{{item.title}}">
+                        </a>
+                        <div class="product-commend-title">{{item.title|truncate_point:'12'}}</div>
+                    </div>
+                    {% endfor %}
+                </div>{% endcomment %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% comment %}<div class="faq-area-2 sp bg6">
+    <div class="container">
+        <div class="section-title">
+            <h2>{% trans "新闻资讯" %}
+            </h2>
+            <div class="section-title-bg">
+                <div class="section-title-bg-box" style=""></div>
+            </div>
+            <div class="sub-title">
+                <hr class="hr-2">
+                <span style="color: #000;">NEWS</span>
+                <hr class="hr-2">
+            </div>
+        </div>
+        <div class="row bg5">
+            {% for item in news_list %}
+            <div class="col-md-12 list-last-box">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="about-img">
+                            <a href="/news_detail/{{item.id}}"><img src="/uploads/{{item.cover_image_url}}" alt="{{item.title}}"></a>
+                        </div>
+                    </div>
+                    <div class="col-md-7">
+                        <div class="about-content" style="margin-top:0;">
+                            <h3 style="margin: 5px 0;"><a href="/news_detail/{{item.id}}">{{item.title|truncate_point:'30'}}</a></h3>
+                            <div>{{item.brief|truncate_point:'300'}}</div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="about-content" style="margin-top:0; text-align: center;">
+                            <h2 style="margin: 5px 0; font-size:35px; color: #fbdf51;">{{item.read_count}}</h2>
+                            <!--<div>{{item.create_time|date:'Y年m月d日 f'}}</div>-->
+                            <div>{{item.create_time|date:'Y年m月d日 H:i:s'}}</div>
+                        </div>
+                        <div class="about-content" style="text-align: center;">
+                            <a class="btn btn-default" style="width: 120px; background-color: #fee97c; color: #fff;" href="/news_detail/{{item.id}}">{% trans "更多" %}>></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+            {% include "pager.html" with page_list=news_list %}
+        </div>
+    </div>
+</div>{% endcomment %}
+{% endblock %}
+
+
+{% block footer %}
+    {% include "footer.html" with footer="footer" %}
+    {% block script_tag %}
+    <script>
+        $(function(){
+        });
+    </script>
+    {% endblock %}
+{% endblock %}

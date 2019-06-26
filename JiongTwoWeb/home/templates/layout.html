@@ -1,0 +1,18 @@
+{% load staticfiles %}
+
+
+{% block header %}
+    {% include "header.html" with title="header" %}
+{% endblock %}
+
+{% block banner %}
+{% endblock %}
+
+<div class="bg2" style="min-height: 300px;">
+{% block content %}
+{% endblock %}
+</div>
+
+{% block footer %}
+    {% include "footer.html" with footer="footer" %}
+{% endblock %}
