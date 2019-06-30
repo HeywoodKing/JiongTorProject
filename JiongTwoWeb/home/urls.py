@@ -24,6 +24,8 @@ urlpatterns = [
     path('privacy/', views.privacy, name='privacy'),
     path('feedback/', views.feedback, name='feedback'),
 
+    path('send_code/', views.send_code, name='send_code'),
+
     url(r'^text/(?P<flag>\d+)/$', views.article_list, name='text'),
     url(r'^img/(?P<flag>\d+)/$', views.article_list, name='img'),
     url(r'^video/(?P<flag>\d+)/$', views.article_list, name='video'),

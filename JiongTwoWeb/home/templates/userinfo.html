@@ -1,10 +1,210 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "layout.html" %}
+{% load staticfiles %}
+{% load my_filter_tag %}
+{% load i18n %}
 
-</body>
-</html>
+{% block header %}
+    {% include "header.html" with title="个人中心" %}
+    {% block style_tag %}
+    <style>
+    </style>
+    {% endblock %}
+{% endblock %}
+
+{% block banner %}
+{% endblock %}
+
+{% block content %}
+<div class="faq-area-2 sp2 bg2">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="faq-sidebar-wrap bg3">
+                    <div style="border-radius: 50%; background-color: #eee; overflow: hidden;">
+                        <img src="{% static 'images/default_man.png' %}">
+                    </div>
+
+                    {% for item in data_lasted %}
+                    <div class="product-commend about-img-1">
+                        <a href="/detail/{{item.id}}">
+                            <img src="/uploads/{{ item.cover_image_url }}" alt="{{item.title}}" title="{{item.title}}">
+                        </a>
+                        <div class="product-commend-title">{{item.title|truncate_point:'12'}}</div>
+                    </div>
+                    {% endfor %}
+                    <div class="row">
+                        <div class="col-md-4 text-center">
+                            <span>ID:</span>
+                        </div>
+                        <div class="col-md-8">
+                            <span>1234567890</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 text-center">
+                            <span>昵称:</span>
+                        </div>
+                        <div class="col-md-8">
+                            <span>1234567890</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 text-center">
+                            <span>性别:</span>
+                        </div>
+                        <div class="col-md-8">
+                            <span>+</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 text-center">
+                            <span>称号:</span>
+                        </div>
+                        <div class="col-md-8">
+                            <span>+</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 text-center">
+                            <span>等级:</span>
+                        </div>
+                        <div class="col-md-8">
+                            <span>+</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 text-center">
+                            <span>囧友:</span>
+                        </div>
+                        <div class="col-md-8">
+                            <span>100</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 text-center">
+                            <span>积分:</span>
+                        </div>
+                        <div class="col-md-8">
+                            <span>100</span>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h4>我的囧事</h4>
+                        </div>
+                        <div class="col-md-12 col-md-offset-1">
+                            <p><a href="#">我的囧事1</a></p>
+                            <p><a href="#">我的囧事1</a></p>
+                            <p><a href="#">我的囧事1</a></p>
+                            <p><a href="#">我的囧事1</a></p>
+                            <p><a href="#">我的囧事1</a></p>
+                            <p><a href="#">我的囧事1</a></p>
+                            <p><a href="#">我的囧事1</a></p>
+                            <p><a href="#">我的囧事1</a></p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="row bg3" style="padding-top: 25px; padding-left: 10px; padding-right: 10px; padding-bottom: 10px; margin-bottom: 15px;">
+                    <div class="col-sm-12 col-md-12 col-lg-12">
+                        <div class="inner">
+                            <div>
+                                123
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-12 col-lg-12">
+                        <div class="about-content">
+                            456
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-12 col-lg-12">
+                        <div class="pull-left">
+                            <a href="javascript::void(0);">
+                                <span class="icon" style="font-size: 18px;">
+                                    <i class="glyphicon glyphicon-thumbs-up"></i>
+                                </span>
+                                <sup style="margin-left: -3px; margin-right: 15px;">+32</sup>
+                            </a>
+                            <a href="javascript::void(0);">
+                                <span class="icon" style="font-size: 18px;">
+                                    <i class="glyphicon glyphicon-thumbs-down"></i>
+                                </span>
+                                <sup style="margin-left: -3px; margin-right: 15px;">+100</sup>
+                            </a>
+                            <a href="javascript::void(0);">
+                                <span class="icon" style="font-size: 18px;">
+                                    <i class="glyphicon glyphicon-comment"></i>
+                                </span>
+                                <sup style="margin-left: -3px; margin-right: 15px;">+200</sup>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% comment %}<div class="faq-area-2 sp bg6">
+    <div class="container">
+        <div class="section-title">
+            <h2>{% trans "新闻资讯" %}
+            </h2>
+            <div class="section-title-bg">
+                <div class="section-title-bg-box" style=""></div>
+            </div>
+            <div class="sub-title">
+                <hr class="hr-2">
+                <span style="color: #000;">NEWS</span>
+                <hr class="hr-2">
+            </div>
+        </div>
+        <div class="row bg5">
+            {% for item in news_list %}
+            <div class="col-md-12 list-last-box">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="about-img">
+                            <a href="/news_detail/{{item.id}}"><img src="/uploads/{{item.cover_image_url}}" alt="{{item.title}}"></a>
+                        </div>
+                    </div>
+                    <div class="col-md-7">
+                        <div class="about-content" style="margin-top:0;">
+                            <h3 style="margin: 5px 0;"><a href="/news_detail/{{item.id}}">{{item.title|truncate_point:'30'}}</a></h3>
+                            <div>{{item.brief|truncate_point:'300'}}</div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="about-content" style="margin-top:0; text-align: center;">
+                            <h2 style="margin: 5px 0; font-size:35px; color: #fbdf51;">{{item.read_count}}</h2>
+                            <!--<div>{{item.create_time|date:'Y年m月d日 f'}}</div>-->
+                            <div>{{item.create_time|date:'Y年m月d日 H:i:s'}}</div>
+                        </div>
+                        <div class="about-content" style="text-align: center;">
+                            <a class="btn btn-default" style="width: 120px; background-color: #fee97c; color: #fff;" href="/news_detail/{{item.id}}">{% trans "更多" %}>></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+            {% include "pager.html" with page_list=news_list %}
+        </div>
+    </div>
+</div>{% endcomment %}
+{% endblock %}
+
+
+{% block footer %}
+    {% include "footer.html" with footer="footer" %}
+    {% block script_tag %}
+    <script>
+        $(function(){
+        });
+    </script>
+    {% endblock %}
+{% endblock %}

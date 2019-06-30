@@ -25,10 +25,10 @@
         },
         "django-simpleui": {
             "hashes": [
-                "sha256:b0cb53317d9c911d111cca331c1004ef022c6cc6501b7af6b8d4cf8588362017"
+                "sha256:8f1a41d5516689b2d8dd92483455964aede0cfa7e22bba542a14c091e81f68dd"
             ],
             "index": "pypi",
-            "version": "==2.1.4.619"
+            "version": "==2.1.5"
         },
         "mysqlclient": {
             "hashes": [

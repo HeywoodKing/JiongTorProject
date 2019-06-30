@@ -60,8 +60,10 @@
                                 <a href="/user/{{ uid }}">个人中心</a>
                                 <a href="javascript:void(0);" class="logout">退出</a>
                             {% else %}
-                                <a href="javascript:void(0);" class="login">登录</a>
-                                <a href="javascript:void(0);" class="reg">注册</a>
+                                {% comment %}<a href="javascript:void(0);" class="login">登录</a>
+                                <a href="javascript:void(0);" class="reg">注册</a>{% endcomment %}
+                                <a href="/login" class="">登录</a>
+                                <a href="/reg" class="">注册</a>
                             {% endif %}
                         </div>
                     </div>
