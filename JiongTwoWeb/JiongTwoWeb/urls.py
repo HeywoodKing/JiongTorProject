@@ -24,7 +24,7 @@ from home import upload
 from home import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin_1221_tor/', admin.site.urls),
     path('', include('home.urls')),
 
     path('login/', views.login, name='login'),

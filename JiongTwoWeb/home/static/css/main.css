@@ -472,7 +472,7 @@ iframe {
     position:relative;
     bottom:38px;
     width:100%;
-    background-color: rgba(0,0,0,0.3);
+    background-color: rgba(0,0,0,0.6);
     color: #fff;
     text-align:center;
     line-height:38px;
@@ -870,7 +870,7 @@ form.search-form button {
  *   02. hero-area
  ***************************** */
 .hero-slider .single-slide {
-  height: 715px;
+  height: 400px;
   background-size: cover;
   background-position: center center;
   display: -webkit-box;
@@ -1200,7 +1200,7 @@ form.search-form button {
       text-align: center;
       opacity: 0;
       visibility: hidden;
-    border-radius: 15px;
+    border-radius: 5px;
 }
       .single-portfolio .inner .portfolio-img-pro .hover-content .button {
         background-color: #fff;

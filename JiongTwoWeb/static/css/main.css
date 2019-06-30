@@ -112,10 +112,16 @@ img {
     max-width: 100%;
 }
 
-.about-img img {
+.about-img-1 img {
     max-width: 100%;
     width: 300px;
-    height: 170px;
+    height: 150px;
+}
+
+.about-img-2 img {
+    max-width: 100%;
+    width: 300px;
+    height: 125px;
 }
 
 /*a,
@@ -173,6 +179,10 @@ span {
 
 h1,h2,h3,h4,h5,h6{
     letter-spacing: 2.5px;
+}
+
+.container{
+    width: 1080px;
 }
 
 
@@ -345,6 +355,7 @@ body {
     line-height: 27px;
     font-weight: 400;
     color: #2d3666;
+    letter-spacing: 1px;
 }
 
 /*h1, h2, h3, h4, h5, h6 {
@@ -430,7 +441,7 @@ iframe {
 .isotope-menu li.active, .isotope-menu li:hover{
     padding: 5px 15px;
     color:#fff;
-    background-color: #99cc67;
+    background-color: #272938;
     border-radius: 50px;
 }
 
@@ -441,17 +452,17 @@ iframe {
 
 .pager li>a:hover, .pager li>span{
     /*border-radius: 18px;*/
-    background-color: #99cc67;
+    background-color: #272938;
 }
 #active {
-    background-color: #99cc67;
+    background-color: #272938;
 }
 /*.pager .disabled>a, .pager .disabled>a:focus, .pager .disabled>a:hover, .pager .disabled>span{
     background-color: transparent;
 }*/
 
 .product-commend{
-    margin-bottom:20px;
+    margin-bottom:-20px;
 }
 
 .product-commend img{
@@ -459,14 +470,13 @@ iframe {
 }
 .product-commend-title{
     position:relative;
-    bottom:50px;
-    float: left;
+    bottom:38px;
     width:100%;
-    background-color: rgba(0,0,0,0.3);
-    color: #fde981;
+    background-color: rgba(0,0,0,0.6);
+    color: #fff;
     text-align:center;
-    line-height:50px;
-    height:50px;
+    line-height:38px;
+    height:38px;
 }
 
 /*翻牌效果 start*/
@@ -711,8 +721,8 @@ iframe {
  *   01. header
  ***************************** */
 header {
-  background-color: #222538;
-  padding: 15px 0;
+  /*background-color: #222538;*/
+    background-color: #9099d2;
 }
 
 .logo-column a.logo {
@@ -812,7 +822,8 @@ form.search-form button {
       #menu ul > li > a:hover {
         color: #fbdf50; }
 #menu ul > li.current-menu-item > a {
-      color: #5d9c1e;
+      /*color: #5d9c1e;*/
+    color: #80ff00;
 }
 
 #menu ul ul {
@@ -859,7 +870,7 @@ form.search-form button {
  *   02. hero-area
  ***************************** */
 .hero-slider .single-slide {
-  height: 715px;
+  height: 400px;
   background-size: cover;
   background-position: center center;
   display: -webkit-box;
@@ -1136,7 +1147,7 @@ form.search-form button {
       visibility: visible; }
   .single-portfolio .inner .portfolio-content {
     text-align: center;
-    padding-top: 25px;
+    padding-top: 10px;
     color: #330000;
   }
     .single-portfolio .inner .portfolio-content a {
@@ -1151,20 +1162,20 @@ form.search-form button {
     position: relative;
 }
 
-@media only screen and (min-width: 991px) {
+/*@media only screen and (min-width: 991px) {
     .single-portfolio .inner .portfolio-img-pro img {
-        min-width: 360px;
-        min-height: 323px;
         border-radius: 15px;
     }
 }
 
 @media only screen and (max-width: 991px){
     .single-portfolio .inner .portfolio-img-pro img {
-        min-width: 330px;
-        min-height: 323px;
         border-radius: 15px;
     }
+}*/
+
+.single-portfolio .inner .portfolio-img-pro img {
+      border-radius: 5px;
 }
 
 .single-portfolio .inner .portfolio-img-pro .hover-content {
@@ -1189,7 +1200,7 @@ form.search-form button {
       text-align: center;
       opacity: 0;
       visibility: hidden;
-    border-radius: 15px;
+    border-radius: 5px;
 }
       .single-portfolio .inner .portfolio-img-pro .hover-content .button {
         background-color: #fff;
@@ -1338,8 +1349,7 @@ form.search-form button {
       display: none; }
 
 .single-faq {
-  padding: 35px 20px 35px 35px;
-  margin-bottom: 30px;
+  padding: 20px;
   border-radius: 5px;
   color: #330000;
   font-size: 14px;
@@ -1347,7 +1357,9 @@ form.search-form button {
 }
   .single-faq h2 {
     font-size: 24px;
-    margin-bottom: 20px; }
+      margin-top: 0px;
+    margin-bottom: 20px;
+  }
     .single-faq h2 span {
       height: 40px;
       width: 40px;
@@ -1368,7 +1380,7 @@ form.search-form button {
     /*border-left: 1px solid #fbdf50;*/
     /*margin-top: 30px;*/
     /*margin-bottom: 30px;*/
-    padding: 20px 35px 35px 35px;
+    padding: 20px;
     border-radius: 5px;
 }
   @media only screen and (max-width: 991px) {
@@ -1499,7 +1511,7 @@ footer {
 
 .footer-bottom {
     background-color: #ffffff;
-    padding: 25px 0;
+    padding: 20px 0;
     /*border-top: 1px solid #333333;*/
 }
   .footer-bottom a {

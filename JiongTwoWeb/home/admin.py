@@ -4,8 +4,9 @@ from home import models
 from django.contrib.admin import SimpleListFilter
 
 # Register your models here.
+admin.site.index_title = '欢迎使用囧途后台管理系统'
 admin.site.site_title = '后台管理系统'
-admin.site.site_header = '囧图后台管理系统'
+admin.site.site_header = '欢迎使用囧途后台管理系统'
 
 
 # 是否启用过滤
@@ -141,7 +142,7 @@ class JtArticleAdmin(admin.ModelAdmin):
     list_display_links = ('title', 'brief', )
     list_editable = ('type', 'sort', 'is_recommend', 'is_enable', 'read_count', 'like_count', 'oppose_count', 'comment_count')
     list_filter = ('type', IsRecommendFilter, IsEnableFilter, 'create_time', )
-    list_per_page = 30
+    list_per_page = 15
     exclude = ('create_uid', 'create_username', 'create_time', 'operate_uid', 'operate_username', )
     # fieldsets = (
     #     ('基本设置', {

@@ -1,0 +1,211 @@
+
+.login-main,.regMain{
+	margin: 0px auto;
+	width: 430px;
+	padding: 100px 0;
+	/*box-shadow: 0 0 10px;*/
+}
+
+.login-title{
+	height:60px;
+	background-color:transparent;
+	text-align: center;
+	text-decoration: none;
+	font-size: 25px;
+	color:#fff;
+	line-height:60px;
+	margin-bottom:0px;
+	/*border-radius: 6px 6px 0px 0px;*/
+	/*border-bottom: 1px solid #fff;*/
+}
+
+.login-content{
+	margin: 18% auto;
+	border-radius: 10px;
+	border: 1px solid #fff;
+	box-shadow: 0 0 10px 5px #fff;
+}
+
+.content-panel{
+	width: 350px;
+	margin: 20px auto;
+
+}
+.loginFoot{
+	/*border-top: 1px solid #393;*/
+	margin-top:10px;
+	padding-top:15px;
+	text-align:center;
+	height:50px;
+}
+.regFoot{
+	padding-top:15px;
+	text-align:center;
+	height:50px;
+}
+#regBtn{
+	/*background-color:#C30;*/
+	/*color:#FFF;*/
+}
+.clr{
+	clear:both;
+}	
+
+.oauth_formbtn {
+	margin: 7px 0 0 0;
+	height: auto;
+}
+.oauth_formbtn a {
+	float: left;
+	cursor: pointer;
+}
+.formbtn_01 {
+	margin-right: 11px;
+}
+.plm {
+	padding-left: 16px;
+	margin-top:40px;
+}
+
+a {
+	color: #12937c;
+	text-decoration: none;
+}
+.plm a:hover{
+	text-decoration:none;
+}
+
+.loginOther a:hover:first-child{
+	text-decoration:none;
+	color:#FFF;
+	background:url(../images/qst.png) no-repeat 0px -38px;
+}
+
+.loginOther a:hover:last-child{
+	text-decoration:none;
+	color:#FFF;
+	background:url(../images/qst.png) no-repeat 0px -149px;
+}
+/*.loginOther a:hover:last-child{
+	text-decoration:none;
+	color:#FFF;
+	background:url(../images/qst.png) no-repeat 0px -371px;
+}*/
+.loginOther2 a:hover{
+	text-decoration:none;
+	color:#000;
+}
+/*
+
+.btnrqq {
+	width: 160px;
+	height: 32px;
+	background: url(../images/qst.png) no-repeat 0px 0px;
+	color: #fff;
+	font-size: 12px;
+	cursor: pointer;
+	vertical-align: middle;
+	line-height: 32px;
+	display: inline-block;
+	text-indent: 35px;
+}
+.btnrsina {
+	width: 160px;
+	height: 32px;
+	background: url(../images/qst.png) no-repeat 0px -112px;
+	color: #fff;
+	font-size: 12px;
+	cursor: pointer;
+	vertical-align: middle;
+	line-height: 32px;
+	display: inline-block;
+	text-indent: 35px;
+}
+.btnrteng {
+	width: 160px;
+	height: 32px;
+	background: url(../images/qst.png) no-repeat 0px -223px;
+	color: #fff;
+	font-size: 12px;
+	cursor: pointer;
+	vertical-align: middle;
+	line-height: 32px;
+	display: inline-block;
+	text-indent: 35px;
+}
+.btnrshun {
+	width: 160px;
+	height: 32px;
+	background: url(../images/qst.png) no-repeat 0px -334px;
+	color: #fff;
+	font-size: 12px;
+	cursor: pointer;
+	vertical-align: middle;
+	line-height: 32px;
+	display: inline-block;
+	text-indent: 35px;
+}	
+.btnrbd {
+	width: 100px;
+	height: 18px;
+	background: url(../images/i_bd.png) no-repeat 0px 0px;
+	cursor: pointer;
+	vertical-align: middle;
+	line-height: 18px;
+	display: inline-block;
+	padding-left: 24px;
+}
+.btnrdb {
+	width: 100px;
+	height: 18px;
+	background: url(../images/i_db.png) no-repeat 0px 2px;
+	cursor: pointer;
+	vertical-align: middle;
+	line-height: 18px;
+	display: inline-block;
+	padding-left: 24px;
+}
+.btnrrr {
+	width: 100px;
+	height: 18px;
+	background: url(../images/i_rr.png) no-repeat 0px 0px;
+	cursor: pointer;
+	vertical-align: middle;
+	line-height: 18px;
+	display: inline-block;
+	padding-left: 24px;
+}*/
+
+.loginOther2{
+	margin-top: 20px;
+}
+.mrl {
+	margin-right: 20px;
+}
+.mr6 {
+	margin-right: 10px;
+}
+.left {
+	float: left;
+}
+.right {
+	float: right;
+}
+
+.msg{
+	display: none;
+	position: fixed;
+	/*left: 30%;*/
+	top: 0;
+	/*background-color: #c30;*/
+	color: #fff;
+	width: 100%;
+	/*height: 50px;*/
+	/*line-height: 50px;*/
+	text-align: center;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+.msg .msg-info{
+	margin: 10px;
+}

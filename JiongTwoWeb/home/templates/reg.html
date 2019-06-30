@@ -4,138 +4,353 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>注册囧途</title>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <link rel="stylesheet" href="{% static 'plugins/layui/css/layui.css' %}">
+{#    <link rel="stylesheet" href="{% static 'plugins/layui/css/layui.css' %}">#}
+
+    <link rel="stylesheet" href="{% static 'plugins/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/supersized.css' %}">
+    <link rel="stylesheet" href="{% static 'css/reset.css' %}">
+    <link rel="stylesheet" href="{% static 'css/animate.min.css' %}">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.6.2/html5shiv.js"></script>
+    <script src="{% static 'js/respond.min.js' %}"></script>
+    <![endif]-->
 </head>
 <body>
-<div class="layui-container" style="margin-top: 20px;">
-    <div class="layui-row">
-        <div class="layui-col-md12">
-            <form id="myform" class="layui-form">
+<div class="">
+    <div class="msg animated">
+        <div class="msg-info"></div>
+    </div>
+	<div class="login-main">
+
+		<div class="login-content">
+
+            <div class="login-title">Hi JiTor</div>
+            <form class="content-panel" role="form" id="myForm" name="myForm">
                 {% csrf_token %}
-                <div class="layui-form-item">
-                    <label class="layui-form-label">姓名：</label>
-                    <div class="layui-input-block">
-                        <input type="text" name="username" required lay-verify="required|username" placeholder="请输入姓名"
-                               autocomplete="off" class="layui-input">
+                <div class="form-group">
+                    <div class="">
+                        <input type="text" class="form-control form-control-lg" id="phone" name="phone" placeholder="手机号">
                     </div>
                 </div>
-                <div class="layui-form-item">
-                    <label class="layui-form-label">手机号：</label>
-                    <div class="layui-input-block">
-                        <input type="text" name="phone" required lay-verify="required|phone" placeholder="请输入手机号"
-                               autocomplete="off" class="layui-input">
+                <div class="form-group">
+                    <div class="input-group">
+                        <input type="text" class="form-control form-control-lg" id="password" name="password" placeholder="验证码">
+                        <div class="input-group-addon" style="width: 43%;">
+                            <span class="count-down"></span>
+                            <a href="javascript:void(0);" id="SendCode" class="send-code">发送验证码</a>
+                            <span class="send-code-span hide">重新发送</span>
+{#                            <input type="button" class="btn btn-default" value="发送验证码">#}
+                        </div>
                     </div>
                 </div>
-                <div class="layui-form-item">
-                    <label class="layui-form-label">邮箱：</label>
-                    <div class="layui-input-block">
-                        <input type="text" name="email" required lay-verify="required|email" placeholder="请输入邮箱"
-                               autocomplete="off" class="layui-input">
+                {% comment %}<div class="form-group">
+                    <div class="checkbox">
+                        <label><input type="checkbox" id="rememberme" name="rememberme"> 记住我一周 </label>
                     </div>
-                </div>
-                <!--<div class="layui-form-item">
-                    <label class="layui-form-label">生日：</label>
-                    <div class="layui-input-block">
-                        <input type="text" class="layui-input" id="birthday" name="birthday" placeholder="请选择生日">
-                    </div>
-                </div>-->
-                <div class="layui-form-item">
-                    <label class="layui-form-label">性别：</label>
-                    <div class="layui-input-block">
-                        <input type="radio" name="sex" value="男" title="男" checked>
-                        <input type="radio" name="sex" value="女" title="女">
-                        <input type="radio" name="sex" value="保密" title="保密">
-                    </div>
-                </div>
-                <div class="layui-form-item">
-                    <div class="layui-input-block">
-                        <button type="submit" id="btnSave" class="layui-btn" lay-submit lay-filter="go">提交</button>
-                        <button type="button" id="btnCancel" name="btnCancel" class="layui-btn layui-btn-primary">取消</button>
+                </div>{% endcomment %}
+                <div class="form-group">
+                    <div class="login-button">
+                        <button type="button" name="BtnReg" data-loading-text="正在加载..." class="btn btn-info pull-left">注册</button>
+                        <button type="button" name="BtnCancel" class="btn btn-default pull-right">取消</button>
+                        <div class="clearfix"></div>
                     </div>
                 </div>
             </form>
-        </div>
-    </div>
+		</div>
+
+        <div class="clr"></div>
+	</div>
 </div>
-<script src="{% static 'plugins/jquery/jquery-3.1.0.min.js' %}"></script>
-<script src="{% static 'plugins/layui/layui.all.js' %}"></script>
+
+<ul id="supersized" class="speed" style="visibility: visible;">
+    <li class="slide-0" style="visibility: visible; opacity: 1;">
+        <a target="_blank">
+            <img src="{% static 'images/1.jpg' %}" style="width: 100%; height: auto; left: 0px; top: -299.5px; ">
+        </a>
+    </li>
+    <li class="slide-1 prevslide" style="visibility: visible; opacity: 1;">
+        <a target="_blank">
+            <img src="{% static 'images/2.jpg' %}" style="width: 100%; height: auto; left: 0px; top: -299.5px; ">
+        </a>
+    </li>
+    <li class="slide-2 activeslide" style="visibility: visible; opacity: 0.1333723268887202;">
+        <a target="_blank">
+            <img src="{% static 'images/3.jpg' %}" style="width: 100%; height: auto; left: 0px; top: -279.5px;">
+        </a>
+    </li>
+</ul>
+
+<script src="{% static 'plugins/jquery/jquery-2.2.4.min.js' %}"></script>
+<script src="{% static 'plugins/bootstrap/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/supersized.3.2.7.min.js' %}"></script>
+<script src="{% static 'js/supersized-init.js' %}"></script>
 <script>
     $(function () {
-        var laydate = layui.laydate;
-        laydate.render({
-            elem:'#birthday'
-        });
-
-        layui.use(['form', 'laydate', 'jquery'], function(){
-            var form = layui.form;
-
-            form.verify({
-                username: function(value, item){
-                    if(value.length >= 50){
-                        return '超过最大长度！';
-                    }
-                },
-                phone: [/^(((13[0-9]{1})|(14[0-9]{1})|(17[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/, '请输入正确手机号！'],
-                // email: function(value, item){
-                //     //
-                // },
-                // password: [/^[\S]{6, 20}$/]  //'密码必须6到20位，且不能出现空格'
+        function errorMsg(content, timeout){
+            {#$(".msg").removeClass('zoomOut').addClass('zoomIn');#}
+            $(".msg").css({
+                "display":"block",
+                "background-color": "#c30"
             });
 
-            //监听提交
-            form.on('submit(go)', function(e){
-                $.ajax({
-                    type: 'POST',
-                    url: '{% url "add_coupon" %}',
-                    data: $('#myform').serialize(),
-                    dataType: 'json',
-                    timeout: 3000,
-                    success: function(data, textStatus){
-                        if(data.code == 0) {
-                            layer.msg('信息已提交', {
-                                icon: 1,
-                                zIndex: layer.zIndex + 10,
-                                time: 2000,
-                            }, function(){
-                                closeLayer();
-                            });
-                        }else{
-                            layer.msg(data.msg, {
-                                icon: 2,
-                                zIndex: layer.zIndex + 10,
-                                time: 3000,
-                            }, function(){
-                                //
-                            });
-                        }
+            $(".msg-info").html(content);
 
+            var t = (timeout == "" || timeout == null || timeout == "undefined") ? 3000 : timeout;
+            $(".msg").fadeOut(t);
+
+            {% comment %}var timeout_obj = setTimeout(function(){
+                $(".msg").removeClass('zoomIn').addClass('zoomOut');
+                clearTimeout(timeout_obj);
+            }, t);{% endcomment %}
+
+        }
+
+        function correctMsg(content, timeout){
+            $(".msg").css({
+                "display":"block",
+                "background-color": "#390"
+            });
+            $(".msg-info").html(content);
+            var t = (timeout == "" || timeout == null || timeout == "undefined") ? 5000 : timeout;
+            $(".msg").fadeOut(t);
+        }
+
+        function msg(obj, foreColor, backColor, content, timeout){
+            obj.css({
+                "display": "block",
+                "color": (foreColor == "" || foreColor == null || foreColor == "undefined") ? "#fff" : foreColor,
+                "background-color": (backColor == "" || backColor == null || backColor == "undefined") ? "#c30" : backColor
+            });
+            obj.html(content);
+            var t = (timeout == "" || timeout == null || timeout == "undefined") ? 3000 : timeout;
+            obj.fadeOut(t);
+        }
+
+        {% comment %}$("input[name='phone']").blur(function(){
+            if($(this).val() == ''){
+                errorMsg("用户名不能为空！", 3000);
+                return;
+            }
+        });{% endcomment %}
+
+        {% comment %}$("input[name='password']").blur(function(){
+            if($(this).val() == "" || $(this).val() == "null" || $(this).val() == "undefined"){
+            errorMsg("密码不能为空！", 3000);
+            }
+        });{% endcomment %}
+
+        $("input[name='phone']").keyup(function(event){
+            // alert(typeof(event.which));
+            if(event.which == 13){
+                $("input[name='password']").focus();
+            }
+        });
+
+        $("input[name='password']").keyup(function(event){
+            if(event.which == 13){
+                $("button[name='BtnReg']").click();
+            }
+        });
+
+        function redirect(url){
+            window.location.href = url;
+        }
+
+        function checkPhone(){
+            var phone = $("input[name='phone']");
+            if(phone.val() == ''){
+                $('.login-content').addClass('animated tada');
+                setTimeout(function(){
+                    $('.login-content').removeClass('tada');
+                }, 1000);
+                errorMsg("用户名不能为空！");
+                phone.focus();
+                return false;
+            }
+
+            return true;
+        }
+
+        function checkVerifyCode(){
+            var password = $("input[name='password']");
+            if(password.val() == ''){
+                $('.login-content').addClass('animated tada');
+                setTimeout(function(){
+                    $('.login-content').removeClass('tada');
+                }, 1000);
+                errorMsg("验证码不能为空！");
+                password.focus();
+                return false;
+            }
+        }
+
+        function formSubmit(){
+            // $('#myForm').submit();
+            $.post("/login",
+            {
+                "sid": sid.val(),
+                "phone": phone.val(),
+                "password": password.val(),
+                "remember": remember.prop("checked"),
+                "code": code.val(),
+                "isverify": isverify
+            },
+            function(data, status){
+                //alert(data);
+                if(status == "success"){
+                    var flag = data.split('|')[0];
+                    var msg = data.split('|')[1];
+
+                    if(flag == 1){
+                        correctMsg("登录成功！", 1000);
+                        sid.val(msg);
+                        setTimeout(function(){
+                            window.location.href = "__APP__/Index/index?sid=" + msg;
+                        }, 1000);
+                        return true;
+                    }else if(flag == -3){
+                        errorMsg(msg, 3000);
+                        verifyCode.css("display","block");
                         return false;
-                    },
-                    error: function(xhr, textStatus, errorThrown){
-                        console.log(textStatus + ">>" + errorThrown);
-                    },
-                    complete: function(xhr, textStatus){
-
+                    }else if(flag == -1){
+                        errorMsg(msg, 3000);
+                        password.focus();
+                        return false;
+                    }else if(flag == -2){
+                        errorMsg(msg, 3000);
+                        code.focus();
+                        return false;
                     }
-                });
+                }else{
+                    errorMsg("连接服务器失败！请检查网络是否正常", 3000);
+                }
+            });
+        }
 
-                return false;  // 这里很重要，一定要加这个。要不然提交后弹出层会刷新一次，从而不执行ajax的success
+        function intervalTime(obj, msg, timelong, timeout){
+
+            var interval_obj = setInterval(function(){
+                obj.html(timelong + '' + msg);
+                timelong -= 1;
+
+                if (timelong < 0){
+                    obj.html('');
+                    $('.send-code-span').addClass('hide');
+                    $('.send-code').show();
+                    clearInterval(interval_obj);
+                }
+            }, timeout);
+            return interval_obj;
+        }
+
+        $("button[name='BtnReg']").click(function(){
+            if(!checkPhone()){
+                return false;
+            }
+
+            if(!checkVerifyCode()){
+                return false;
+            }
+
+            formSubmit();
+        });
+
+        $(".send-code").on('click', function(){
+            //判断手机号是否为空
+            if(!checkPhone()){
+                return false;
+            }
+
+            //调用后端接口发送验证码
+            var phone = $("input[name='phone']");
+            $.ajax({
+                url: {% url "send_code" %},
+                data: {
+                    phone: phone.val(),
+                    csrfmiddlewaretoken: $("input[name='csrfmiddlewaretoken']").val()
+                },
+                type: 'POST',
+                dataType: 'json',
+                timeout: 3000,
+                success: function(data, status){
+                    if(data.code == 0) {
+                        correctMsg("验证码已发送！请注意查收");
+
+                        $('.send-code-span').removeClass('hide');
+                        $('.send-code').hide();
+
+                        //这里就要开启倒计时
+                        intervalTime($('.count-down'), 's', 120, 1000);
+                        return;
+                    }
+
+                    errorMsg(data.msg);
+                },
+                error:function(data, status){
+                    console.log(data.msg);
+                },
             });
         });
+
+        {% comment %}$.ajax({
+            type: 'POST',
+            url: '{% url "reg" %}',
+            data: $('#myform').serialize(),
+            dataType: 'json',
+            timeout: 3000,
+            success: function(data, textStatus){
+                if(data.code == 0) {
+                    layer.msg('信息已提交', {
+                        icon: 1,
+                        zIndex: layer.zIndex + 10,
+                        time: 2000,
+                    }, function(){
+                        closeLayer();
+                    });
+                }else{
+                    layer.msg(data.msg, {
+                        icon: 2,
+                        zIndex: layer.zIndex + 10,
+                        time: 3000,
+                    }, function(){
+                        //
+                    });
+                }
+
+                return false;
+            },
+            error: function(xhr, textStatus, errorThrown){
+                console.log(textStatus + ">>" + errorThrown);
+            },
+            complete: function(xhr, textStatus){
+
+            }
+        });{% endcomment %}
+
+        {% comment %}phone: function(value, item){
+            if(value.length >= 50){
+                return '超过最大长度！';
+            }
+        },
+        phone: [/^(((13[0-9]{1})|(14[0-9]{1})|(17[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/, '请输入正确手机号！'],{% endcomment %}
+        // email: function(value, item){
+        //     //
+        // },
+        // password: [/^[\S]{6, 20}$/]  //'密码必须6到20位，且不能出现空格'
 
         // $('#btnSave').on('click', function(){
         // });
 
-        $('#btnCancel').on('click', function(){
-            closeLayer();
+        $("button[name='BtnCancel']").on('click', function(){
+            redirect('/index');
         });
-
-        function closeLayer(){
-            var index = parent.layer.getFrameIndex(window.name);
-            parent.layer.close(index);
-        }
     });
 </script>
 </body>

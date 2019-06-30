@@ -137,6 +137,54 @@ def reg(req):
     return render(req, 'reg.html')
 
 
+def send_code(req):
+    phone = req.POST.get('phone', '')
+    if phone == '':
+        res = {
+            'code': 1,
+            'flag': 'fail',
+            'msg': '手机号码不能为空！',
+            'data': None
+        }
+        return HttpResponse(json.dumps(res), 'application/json')
+    else:
+        # 调用阿里云短信发送接口
+        aliyun_res = send_sms(phone)
+        if aliyun_res['code'] != 0:
+            res = {
+                'code': 2,
+                'flag': 'fail',
+                'msg': aliyun_res['msg'],
+                'data': None
+            }
+            return HttpResponse(json.dumps(res), 'application/json')
+        else:
+            res = {
+                'code': 0,
+                'flag': 'success',
+                'msg': aliyun_res['msg'],
+                'data': aliyun_res['data']
+            }
+            return HttpResponse(json.dumps(res), 'application/json')
+
+
+def send_sms(phone):
+    res = {
+        'code': 0,
+        'flag': 'success',
+        'msg': '验证码发送成功！',
+        'data': phone[-6]
+    }
+
+    # res = {
+    #     'code': 1,
+    #     'flag': 'fail',
+    #     'msg': '验证码发送失败！',
+    #     'data': None
+    # }
+    return res
+
+
 # 个人中心
 def user(req, uid):
     return render(req, 'userinfo.html', locals())
@@ -184,7 +232,7 @@ def index(req):
 
 
 # 文章列表 - 热门
-@login_required
+# @login_required
 def hot_list(req):
     index = 1
 

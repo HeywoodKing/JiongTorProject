@@ -129,7 +129,7 @@
 {% endblock %}
 
 {% block content %}
-<div class="service-area sp bg6">
+<div class="service-area sp bg3">
     <div class="container">
         <div class="section-title">
             <h2>{% trans "联系我们" %}</h2>
@@ -175,14 +175,14 @@
                         <h4 style="color: #fff;">{% trans "地址" %}</h4>
                     </div>
                     <div class="content">
-                        <h3 style="color: #333333; font-size: 18px;">{% trans "西安市高新区丈八二路31号" %}</h3>
+                        <h3 style="color: #333333; font-size: 18px;">{% trans "西安市高新区科技二路软件园" %}</h3>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<div class="gallery-area sp bg3">
+<div class="gallery-area sp bg2">
     <div class="container">
         <div class="section-title" data-margin="0 0 40px">
             <h2>{% trans "公司地址" %}</h2>
@@ -191,14 +191,14 @@
                 <span>COMPANY ADDRESS</span>
                 <hr class="hr-2">
             </div>
-            <div>{% trans "如果，您是亲临秦食皇，有以下交通方式可供选择" %}：</div>
-            <div>{% trans "乘坐公交：251路、107路、高新2号线都可到达，自驾车：参考地图标示行驶高新六路，科技四路，团结南路前往双水磨公交站均可到达。" %}</div>
+            <div>{% trans "欢迎您亲临，有以下交通方式可供选择" %}：</div>
+            <div>{% trans "乘坐公交：251路、107路、高新2号线都可到达，自驾车：参考地图标示行驶科技二路软件园。" %}</div>
         </div>
         <div class="row">
             <div class="col-md-12">
                 <div class="">
                     <!--<img src="{% static 'images/gallery-1.jpg' %}" alt="">-->
-                    <div id="map-container" style="width: 100%; height: 600px; border: 3px solid #fde981; border-radius: 10px;"></div>
+                    <div id="map-container" style="width: 100%; height: 600px; border: 3px solid #d2d0c6; border-radius: 10px; box-shadow: 0px 0px 20px 5px #ddd;"></div>
                 </div>
             </div>
         </div>
@@ -241,12 +241,12 @@
                 expandZoomRange: true,
             });
             // 换取环境光
-            map.AmbientLight = new AMap.Lights.AmbientLight([1, 1, 1], 0.3);
+            // map.AmbientLight = new AMap.Lights.AmbientLight([1, 1, 1], 0.3);
             // map.AmbientLight.setIntensity(0.5); //修改强度
             // map.AmbientLight.setColor([1,0,0]); //修改颜色
             // map.AmbientLight.setDirection([0,-1,2]); //修改方向
             // 获取平行光
-            map.DirectionLight = new AMap.Lights.DirectionLight([0, -1, 2], [1, 1, 1], 0.7);
+            // map.DirectionLight = new AMap.Lights.DirectionLight([0, -1, 2], [1, 1, 1], 0.7);
 
             var myMapCenter = map.getCenter();
             // console.log(map.getCenter());
@@ -399,7 +399,7 @@
                 map.render();
                 AMap.Util.requestAnimFrame(changeLightDirection);
             }
-            changeLightDirection();
+            // changeLightDirection();
 
 
             // 3D层
@@ -476,7 +476,7 @@
             // addRegularPrism(center_3d.add(new AMap.Pixel(-770, 3200)), 32, 1600, 500) //圆柱
 
             // addRegularPrism(center_3d.add(new AMap.Pixel(-1500, 0)), 3, 800, 500, [1, 0, 0, 1]) //三棱柱
-            addRegularPrism(center_3d.add(new AMap.Pixel(-50, 350)), 5, 1500, 400, [0, 1, 0, 1])//五棱柱
+            // addRegularPrism(center_3d.add(new AMap.Pixel(-50, 350)), 5, 1500, 400, [0, 1, 0, 1])//五棱柱
             // addRegularPrism(center_3d.add(new AMap.Pixel(-770, 3200)), 32, 1600, 500, [0, 0, 1, 1])//圆柱
 
 
@@ -492,6 +492,7 @@
             var marker = new AMap.Marker({
                 position: [myMapCenter.lng, myMapCenter.lat]  //位置
             });
+
             // 添加到地图
             map.add(marker);
             // map.remove(marker);

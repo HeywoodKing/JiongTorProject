@@ -32,9 +32,10 @@ DEBUG = True
 ALLOWED_HOSTS = [
     '127.0.0.1',
     'localhost',
-    'www.jiongtwo.local',
-    'www.jiongtwo.com',
-    'www.jiongtwo.cn',
+    '172.16.0.4',
+    '106.52.95.117',
+    'www.jiongtor.local',
+    'www.jiongtor.com',
 ]
 
 
@@ -100,7 +101,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'HOST': 'localhost',
         'PORT': '3306',
-        'NAME': 'jiongtwo',
+        'NAME': 'jiongtor',
         'USER': 'root',
         'PASSWORD': '123456',
     }
@@ -409,7 +410,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads').replace('\\', '/')  # 设置静�
 # 设置simpleui 点击首页图标跳转的地址
 SIMPLEUI_INDEX = 'http://47.99.121.101:8000/index'
 # 自定义SIMPLEUI的Logo 修改LOGO
-SIMPLEUI_LOGO = STATIC_URL + 'images/logo_03.png'
+SIMPLEUI_LOGO = STATIC_URL + 'images/logo.png'
 
 # 服务器信息
 SIMPLEUI_HOME_INFO = True

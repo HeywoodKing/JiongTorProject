@@ -4,7 +4,7 @@
 {% load i18n %}
 
 {% block header %}
-    {% include "header.html" with title="新闻资讯" %}
+    {% include "header.html" with title="快乐是有价值的" %}
     {% block style_tag %}
     <style>
     </style>
@@ -20,22 +20,24 @@
         <div class="row">
             <div class="col-md-9">
                 {% for item in data_list %}
-                <div id="{{ item.id }}" class="row bg3" style="padding-top: 25px; padding-left: 10px; padding-right: 10px; padding-bottom: 10px; margin-bottom: 15px;">
+                <div id="{{ item.id }}" class="row bg3"
+                     style="padding-top: 25px; padding-left: 10px; padding-right: 10px;
+                     padding-bottom: 10px; margin-bottom: 15px;">
                     <div class="col-sm-12 col-md-12 col-lg-12">
                         <div class="inner">
                             <div>
-                                <a href="/detail/{{item.id}}" style="margin-right: 10px;">
-{#                                    <img src="{% static 'images/default_woman.png' %}" class="d-flex mr-3" alt="" style="width: 20px;">#}
-                                    <img src="/uploads/{{ item.user.avatar }}" class="d-flex mr-3" alt="" style="width: 20px;">
+                                <a href="/user/{{item.user.id}}" style="margin-right: 10px;">
+                                    <img src="/uploads/{{ item.user.avatar }}" class="d-flex mr-3"
+                                         alt="{{ item.user.nick_name }}" style="width: 20px;">
                                 </a>
                                 <span style="margin-right: 10px;">
-                                    <a href="/user/{{item.create_uid}}">{{ item.user.nick_name }}</a>
+                                    <a href="/user/{{item.user.id}}">{{ item.user.nick_name }}</a>
                                 </span>
                                 <span class="label label-info" style="margin-right: 10px;">
                                     {% if item.user.sex == '1' %}
                                         ♂&nbsp;&nbsp;{{ item.user.birthday|date:'y' }}
                                     {% elif item.user.sex == '2' %}
-                                        ♀&nbsp;&nbsp;{{ item.user.birthday }}
+                                        ♀&nbsp;&nbsp;{{ item.user.birthday|date:'y' }}
                                     {% else %}
                                         未知
                                     {% endif %}
@@ -52,14 +54,9 @@
                     </div>
                     <div class="col-sm-12 col-md-12 col-lg-12">
                         <div class="about-content">
-{#                            <h3 style="margin: 5px 0;"><a href="/news_detail/11">fsdafasdfasdfasdfadsfadfafasdf</a></h3>#}
+                            <h3 style="margin: 10px 0;"><a href="/detail/{{item.id}}">{{item.title|truncate_point:'30'}}</a></h3>
                             <a href="/detail/{{item.id}}">
-                                {% comment %}{% if item.cover_image_url %}
-                                <img src="/uploads/{{item.cover_image_url}}">
-                                {% endif %}{% endcomment %}
-                                <span>
-                                    {{item.content|truncate_point:'300'|safe}}
-                                </span>
+                                {{item.content|safe}}
                             </a>
                         </div>
                     </div>

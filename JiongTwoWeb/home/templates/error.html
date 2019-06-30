@@ -1,0 +1,133 @@
+{% extends "layout.html" %}
+{% load staticfiles %}
+{% load i18n %}
+
+{% block header %}
+    {% include "header.html" with title="关于我们" %}
+    {% block style_tag %}
+    <link rel="stylesheet" href="{% static 'css/timeline.css' %}">
+    <style>
+    </style>
+    {% endblock %}
+{% endblock %}
+
+{% block banner %}
+
+<!--滚动切换图片-->
+{% comment %}<div class="hero-slider">
+    <div class="single-slide" style="background-image: url({% static 'images/banner_8.jpg' %})">
+        <div class="inner">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-12 text-center">
+                        <div class="slide-content">
+                            <h2 class="banner-h2">
+                                ABOUT US
+                            </h2>
+                            <h4 class="banner-h4">
+                                <hr class="hr-1">
+                                <span>我们传递价值信息，让您的信息产生价值</span>
+                                <hr class="hr-1">
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="single-slide" style="background-image: url({% static 'images/banner_7.jpg' %})">
+        <div class="inner">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <div class="slide-content">
+                            <h2 class="banner-h2">
+                                ABOUT US
+                            </h2>
+                            <h4 class="banner-h4">
+                                <hr class="hr-1">
+                                <span>{% trans "囧途不囧，每一份价值都值得托付！" %}</span>
+                                <hr class="hr-1">
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="single-slide" style="background-image: url({% static 'images/banner_8.jpg' %})">
+        <div class="inner">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-12 text-center">
+                        <div class="slide-content">
+                            <h2 class="banner-h2">
+                                ABOUT US
+                            </h2>
+                            <h4 class="banner-h4">
+                                <hr class="hr-1">
+                                <span>集搞笑，经典，名言，段子，囧图，糗事等等以及您身边发生的每一件事都可以托付</span>
+                                <hr class="hr-1">
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>{% endcomment %}
+{% endblock %}
+
+{% block content %}
+<div class="about-area sp">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="about-content">
+                    <h3>囧途</h3>
+                    <p>
+                        「囧途」是国内首个集原创搞笑，经典，名言，奇葩，囧图等内容的 UGC 社区，创建于2014年，以“快乐共分享，价值永传递”的产品理念。从 PC 时代到移动互联网时代，时间的碎片化进入全新时代。「囧途」的内容包括图文视频等，
+作为国内原创搞笑内容社区，「囧途」为社区良好的创作交流氛围提供了坚实的养分；「囧途」通过机器审核、用户审核、官方运营审核三方评审的内容审核分发机制，形成良性文化社区，2015年「囧途」即完成了注册用户从 0 到 300 万的突破。
+在路上，我们将一起快乐出发，不忘初心，继续为分享快乐，传递价值而努力。
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="about-img">
+                    <img src="{% static 'images/fag-img.png' %}" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="page-bottom-title sp page-bottom-bg">
+    <div class="container text-center">
+        <h2 class="banner-h3" style="color:rgb(255,255,255,0.8);">
+            {% trans "愿景规划" %}
+        </h2>
+        <h4 class="banner-h4">
+            <hr class="hr-1">
+            <span>VISION</span>
+            <hr class="hr-1">
+        </h4>
+        <p style="color:rgb(255,255,255,0.8); letter-spacing:1px;">{% trans '每天传递一份快乐，时刻保持一种心情，囧途不囧，因每一份成长都有价值' %}</p>
+    </div>
+</div>
+
+{% endblock %}
+
+
+{% block footer %}
+    {% include "footer.html" with footer="footer" %}
+    {% block script_tag %}
+    <script>
+        $(function(){
+            $('.grid').masonry({
+                itemSelector: '.grid-item',
+                // columnWidth: 200
+            });
+        });
+    </script>
+    {% endblock %}
+{% endblock %}

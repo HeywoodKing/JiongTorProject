@@ -1,0 +1,127 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户登录</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="{% static 'plugins/layui/css/layui.css' %}">
+</head>
+<body>
+<div class="layui-container" style="margin-top: 20px;">
+    <div class="layui-row">
+        <div class="layui-col-md-1">
+            <form id="myform" class="layui-form">
+                {% csrf_token %}
+                <div class="layui-form-item">
+                    <label class="layui-form-label">账号：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="username" required lay-verify="required|username" placeholder="手机号/邮箱/账号"
+                               autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">密码：</label>
+                    <div class="layui-input-block">
+                        <input type="password" name="password" required lay-verify="required|password" placeholder="密码"
+                               autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-input-block">
+                        <button type="submit" id="btnSave" class="layui-btn" lay-submit lay-filter="go">登录</button>
+                        <button type="button" id="btnCancel" name="btnCancel" class="layui-btn layui-btn-primary">取消</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script src="{% static 'plugins/jquery/jquery-3.1.0.min.js' %}"></script>
+<script src="{% static 'plugins/layui/layui.all.js' %}"></script>
+<script>
+    $(function () {
+        layui.use(['form', 'jquery'], function(){
+            var form = layui.form;
+
+            form.verify({
+                username: function(value, item){
+                    if(value.length <= 4){
+                        return '长度必须大于4！';
+                    }
+                    if(value.length >= 30){
+                        return '长度不能大于30！';
+                    }
+                },
+                // phone: [/^(((13[0-9]{1})|(14[0-9]{1})|(17[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/, '请输入正确手机号！'],
+                // email: function(value, item){
+                //     //
+                // },
+                //password: [/^[\S]{5, 20}$/, '密码必须6到20位']  //'密码必须6到20位，且不能出现空格'
+                password: function(value, item){
+                    if(value.length < 6){
+                        return '密码长度必须6到20位！';
+                    }
+                    if(value.length > 20){
+                        return '密码长度必须6到20位！';
+                    }
+                }
+            });
+
+            //监听提交
+            form.on('submit(go)', function(e){
+                $.ajax({
+                    type: 'POST',
+                    url: '{% url "login" %}',
+                    data: $('#myform').serialize(),
+                    dataType: 'json',
+                    timeout: 3000,
+                    success: function(data, textStatus){
+                        if(data.code == 0) {
+                            layer.msg('信息已提交', {
+                                icon: 1,
+                                zIndex: layer.zIndex + 10,
+                                time: 2000,
+                            }, function(){
+                                closeLayer();
+                            });
+                        }else{
+                            layer.msg(data.msg, {
+                                icon: 2,
+                                zIndex: layer.zIndex + 10,
+                                time: 3000,
+                            }, function(){
+                                //
+                            });
+                        }
+
+                        return false;
+                    },
+                    error: function(xhr, textStatus, errorThrown){
+                        console.log(textStatus + ">>" + errorThrown);
+                    },
+                    complete: function(xhr, textStatus){
+
+                    }
+                });
+
+                return false;  // 这里很重要，一定要加这个。要不然提交后弹出层会刷新一次，从而不执行ajax的success
+            });
+        });
+
+        // $('#btnSave').on('click', function(){
+        // });
+
+        $('#btnCancel').on('click', function(){
+            closeLayer();
+        });
+
+        function closeLayer(){
+            var index = parent.layer.getFrameIndex(window.name);
+            parent.layer.close(index);
+        }
+    });
+</script>
+</body>
+</html>
